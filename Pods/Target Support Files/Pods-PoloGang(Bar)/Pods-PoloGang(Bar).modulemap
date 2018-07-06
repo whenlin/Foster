@@ -1,0 +1,6 @@
+framework module Pods_PoloGang_Bar_ {
+  umbrella header "Pods-PoloGang(Bar)-umbrella.h"
+
+  export *
+  module * { export * }
+}
