@@ -24,11 +24,14 @@ class BarRatingVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func initRatings(){
+    func initRatings(bar: Bar){
         
+        self.barName.text = bar.title
+      //  self.barRating.text = barRating
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func reviewsBtnClicked(_ sender: Any) {

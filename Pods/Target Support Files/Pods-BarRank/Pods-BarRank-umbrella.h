@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_PoloGang_Bar_VersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_PoloGang_Bar_VersionString[];
+FOUNDATION_EXPORT double Pods_BarRankVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_BarRankVersionString[];
 

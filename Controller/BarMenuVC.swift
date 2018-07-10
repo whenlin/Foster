@@ -49,13 +49,19 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bar = self.getBars()[indexPath.row]
-        performSegue(withIdentifier: "ReviewsVC", sender: bar)
+     //   performSegue(withIdentifier: "ReviewsVC", sender: bar)
+        performSegue(withIdentifier: "BarRatingVC", sender: bar)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-          if let reviewsVC = segue.destination as? ReviewsVC{
-              assert(sender as? Bar != nil)
-              reviewsVC.initBars(bar: sender as! Bar)
+//          if let reviewsVC = segue.destination as? ReviewsVC{
+//              assert(sender as? Bar != nil)
+//              reviewsVC.initBars(bar: sender as! Bar)
+//        }
+
+        if let barRatingVC = segue.destination as? BarRatingVC{
+            assert(sender as? Bar != nil)
+            barRatingVC.initRatings(bar: sender as! Bar)
         }
         
           let barBtn = UIBarButtonItem()

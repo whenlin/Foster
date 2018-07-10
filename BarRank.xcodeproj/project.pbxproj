@@ -27,11 +27,10 @@
 		83A4CCD820D7199F0005BC7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD720D7199F0005BC7B /* Constants.swift */; };
 		83A4CCDA20D7229D0005BC7B /* BarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD920D7229D0005BC7B /* BarModel.swift */; };
 		83A4CCDC20D726FC0005BC7B /* ReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */; };
-		BE6EF26BCFC61EA000F7D2A5 /* Pods_PoloGang_Bar_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCF15CBCCF427ACEB60E808E /* Pods_PoloGang_Bar_.framework */; };
+		ED93735C8D99ADE1D2545031 /* Pods_BarRank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E4F2C96AF962F8411A7710A /* Pods-PoloGang(Bar).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoloGang(Bar).release.xcconfig"; path = "Pods/Target Support Files/Pods-PoloGang(Bar)/Pods-PoloGang(Bar).release.xcconfig"; sourceTree = "<group>"; };
 		8305259820E937E1009AC597 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		8305259A20EA7D3D009AC597 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		8305259C20EA81F3009AC597 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -56,8 +55,10 @@
 		83A4CCD720D7199F0005BC7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		83A4CCD920D7229D0005BC7B /* BarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarModel.swift; sourceTree = "<group>"; };
 		83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsVC.swift; sourceTree = "<group>"; };
+		BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarRank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF15CBCCF427ACEB60E808E /* Pods_PoloGang_Bar_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoloGang_Bar_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE9BF980042F622B72527400 /* Pods-PoloGang(Bar).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoloGang(Bar).debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoloGang(Bar)/Pods-PoloGang(Bar).debug.xcconfig"; sourceTree = "<group>"; };
+		E7C11E2F532C57406DA0310B /* Pods-BarRank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarRank.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarRank/Pods-BarRank.release.xcconfig"; sourceTree = "<group>"; };
+		FFBCB993657E37AE68FEE27C /* Pods-BarRank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarRank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BarRank/Pods-BarRank.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6EF26BCFC61EA000F7D2A5 /* Pods_PoloGang_Bar_.framework in Frameworks */,
+				ED93735C8D99ADE1D2545031 /* Pods_BarRank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +172,8 @@
 		C500B14C3B81723B29DECD30 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE9BF980042F622B72527400 /* Pods-PoloGang(Bar).debug.xcconfig */,
-				4E4F2C96AF962F8411A7710A /* Pods-PoloGang(Bar).release.xcconfig */,
+				FFBCB993657E37AE68FEE27C /* Pods-BarRank.debug.xcconfig */,
+				E7C11E2F532C57406DA0310B /* Pods-BarRank.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -181,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF15CBCCF427ACEB60E808E /* Pods_PoloGang_Bar_.framework */,
+				BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,18 +263,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PoloGang(Bar)/Pods-PoloGang(Bar)-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BarRank/Pods-BarRank-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoloGang(Bar)/Pods-PoloGang(Bar)-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BarRank/Pods-BarRank-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68E20A5371D744475C694477 /* [CP] Check Pods Manifest.lock */ = {
@@ -286,7 +290,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PoloGang(Bar)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BarRank-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -458,7 +462,7 @@
 		};
 		835A9B4F20CC5C6A00FE5B69 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE9BF980042F622B72527400 /* Pods-PoloGang(Bar).debug.xcconfig */;
+			baseConfigurationReference = FFBCB993657E37AE68FEE27C /* Pods-BarRank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -479,7 +483,7 @@
 		};
 		835A9B5020CC5C6A00FE5B69 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E4F2C96AF962F8411A7710A /* Pods-PoloGang(Bar).release.xcconfig */;
+			baseConfigurationReference = E7C11E2F532C57406DA0310B /* Pods-BarRank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
