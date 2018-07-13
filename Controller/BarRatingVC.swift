@@ -26,7 +26,7 @@ class BarRatingVC: UIViewController {
     
     func initRatings(bar: Bar){
         
-        self.barName.text = bar.title
+      //  self.barName.text = bar.title
       //  self.barRating.text = barRating
     }
     
