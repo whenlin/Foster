@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class RoundedImageView: UIImageView {
 
-    init(size:CGFloat = 200, roundess:CGFloat = 2, borderWidth:CGFloat = 2, borderColor:UIColor = UIColor.cyan, background:UIColor = UIColor.clear){
+    init(size:CGFloat = 200, roundess:CGFloat = 2, borderWidth:CGFloat = 2, borderColor:UIColor = UIColor.white, background:UIColor = UIColor.clear){
         self.roundness = roundess
         self.borderWidth = borderWidth
         self.borderColor = borderColor
