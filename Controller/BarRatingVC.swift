@@ -12,6 +12,9 @@ class BarRatingVC: UIViewController {
 
     @IBOutlet weak var barName: UILabel!
     @IBOutlet weak var barRating: UILabel!
+    var barAddress: String!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

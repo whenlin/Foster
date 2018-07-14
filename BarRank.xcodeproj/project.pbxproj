@@ -13,6 +13,7 @@
 		8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067520EC5DB300D8072C /* BarRatingVC.swift */; };
 		8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067720EC674F00D8072C /* BarReviewsService.swift */; };
 		8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08320F96ADF009030AF /* CircularLabel.swift */; };
+		8354E08620FA8169009030AF /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08520FA8169009030AF /* BorderButton.swift */; };
 		835A9B4020CC5C6400FE5B69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B3F20CC5C6400FE5B69 /* AppDelegate.swift */; };
 		835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B4120CC5C6400FE5B69 /* ViewController.swift */; };
 		835A9B4520CC5C6400FE5B69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 835A9B4320CC5C6400FE5B69 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		8342067520EC5DB300D8072C /* BarRatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRatingVC.swift; sourceTree = "<group>"; };
 		8342067720EC674F00D8072C /* BarReviewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReviewsService.swift; sourceTree = "<group>"; };
 		8354E08320F96ADF009030AF /* CircularLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLabel.swift; sourceTree = "<group>"; };
+		8354E08520FA8169009030AF /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		835A9B3C20CC5C6300FE5B69 /* BarRank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarRank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		835A9B3F20CC5C6400FE5B69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		835A9B4120CC5C6400FE5B69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */,
 				8305259820E937E1009AC597 /* ReviewsCell.swift */,
 				8305259A20EA7D3D009AC597 /* RoundedImageView.swift */,
+				8354E08520FA8169009030AF /* BorderButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,
+				8354E08620FA8169009030AF /* BorderButton.swift in Sources */,
 				8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */,
 				8305259920E937E1009AC597 /* ReviewsCell.swift in Sources */,
 				8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */,
