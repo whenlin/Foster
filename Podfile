@@ -1,4 +1,4 @@
-project 'Foster.xcodeproj'
+project 'BarRank.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
@@ -16,7 +16,7 @@ target 'BarRank' do
 
   # Pods for PoloGang(Bar)
   pod 'Alamofire'
-  pod 'SwiftyJSON'
+  pod 'UberRides', '~> 0.9'
   pod 'Cosmos', '~> 16.0'
 
 end
