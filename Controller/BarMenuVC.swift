@@ -8,23 +8,34 @@
 
 import UIKit
 
-class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
 
     
     //Outlets
     
     @IBOutlet weak var listOfBars: UITableView!
     
-    
     //properties
     var tableData: [Bar] = [Bar]() //array that holds the bars
-    var barNames: [String] = [String]() //array holding the bar names
+    var filteredBars: [String] = [String]() //array holding the filtered bars i.e. the search results
+    var bars: [String] = [String]()   //array holding the bar names
+    let searchController = UISearchController(searchResultsController: nil)
     
+    
+    //functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         listOfBars.dataSource = self
         listOfBars.delegate = self
+        
+        filteredBars = bars
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        listOfBars.tableHeaderView = searchController.searchBar
+        
         self.tableData = getBarData(url: URL_GETBARS)  //retrieve data from api
     }
 
@@ -62,11 +73,34 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if let barRatingVC = segue.destination as? BarRatingVC{
             assert(sender as? Bar != nil)
             barRatingVC.initRatings(bar: sender as! Bar)
+          //  barRatingVC.initRatings_(barName: sender)
         }
         
           let barBtn = UIBarButtonItem()
           barBtn.title = ""
           navigationItem.backBarButtonItem = barBtn
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // If we haven't typed anything into the search bar then do not filter the results
+        if searchController.searchBar.text! == "" {
+            filteredBars = bars
+        } else {
+            // Filter the results
+            filteredBars =   extractBarNames(array: tableData).filter{ $0.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+        }
+
+        self.listOfBars.reloadData()
+    }
+    
+    func extractBarNames(array: [Bar]) -> [String]{
+        var result = [String]()
+        
+        for bar in array {
+            result.append(bar.title)
+        }
+        
+        return result
     }
     
     func getBarData(url: String) -> [Bar] {  //gets data from api then returns array
@@ -109,15 +143,15 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             }
             
             if let array = json["bars"] as? [String] {
-                self.barNames = array
+                self.bars = array
             }
             
-            for index in self.barNames {
+            for index in self.bars {
                 let imageName = index + ".jpg"
                 self.tableData.append(Bar(title: index, imageName: imageName))
             }
             
-            print(self.barNames)
+            print(self.bars)
             
             DispatchQueue.main.async {
                 self.listOfBars.reloadData()

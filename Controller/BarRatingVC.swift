@@ -39,6 +39,12 @@ class BarRatingVC: UIViewController {
       //  self.barRating.text = barRating
     }
     
+    func initRatings_(barName: String){
+        self.barName.text = barName
+        //gonna have to call the api to get the respective bar's ratings
+        //probs should implement a function that gets the ratings then place that function in viewDidLoad()
+    }
+    
     @IBAction func backBtnClicked(_ sender: Any) {  //navigates users back to the list of bars
         dismiss(animated: true, completion: nil)
     }
