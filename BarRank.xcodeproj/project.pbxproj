@@ -10,6 +10,7 @@
 		8305259920E937E1009AC597 /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259820E937E1009AC597 /* ReviewsCell.swift */; };
 		8305259B20EA7D3D009AC597 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259A20EA7D3D009AC597 /* RoundedImageView.swift */; };
 		8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259C20EA81F3009AC597 /* RoundedButton.swift */; };
+		832756CD2108CC8700217B7C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832756CC2108CC8700217B7C /* SWRevealViewController.m */; };
 		8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067520EC5DB300D8072C /* BarRatingVC.swift */; };
 		8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067720EC674F00D8072C /* BarReviewsService.swift */; };
 		8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08320F96ADF009030AF /* CircularLabel.swift */; };
@@ -19,7 +20,6 @@
 		835A9B4520CC5C6400FE5B69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 835A9B4320CC5C6400FE5B69 /* Main.storyboard */; };
 		835A9B4720CC5C6A00FE5B69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 835A9B4620CC5C6A00FE5B69 /* Assets.xcassets */; };
 		835A9B4A20CC5C6A00FE5B69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 835A9B4820CC5C6A00FE5B69 /* LaunchScreen.storyboard */; };
-		835A9B5620CC5D9800FE5B69 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5320CC5D9700FE5B69 /* SWRevealViewController.m */; };
 		835A9B5A20CDFAE400FE5B69 /* FrontPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5920CDFAE400FE5B69 /* FrontPageVC.swift */; };
 		835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */; };
 		835A9B6020D0B40300FE5B69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5F20D0B40300FE5B69 /* GradientView.swift */; };
@@ -36,6 +36,8 @@
 		8305259820E937E1009AC597 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		8305259A20EA7D3D009AC597 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		8305259C20EA81F3009AC597 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		832756CB2108CC8700217B7C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../Volumes/VERBATIM HD/stuff/UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
+		832756CC2108CC8700217B7C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../Volumes/VERBATIM HD/stuff/UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
 		8342067520EC5DB300D8072C /* BarRatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRatingVC.swift; sourceTree = "<group>"; };
 		8342067720EC674F00D8072C /* BarReviewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReviewsService.swift; sourceTree = "<group>"; };
 		8354E08320F96ADF009030AF /* CircularLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLabel.swift; sourceTree = "<group>"; };
@@ -48,8 +50,6 @@
 		835A9B4920CC5C6A00FE5B69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		835A9B4B20CC5C6A00FE5B69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		835A9B5220CC5D9600FE5B69 /* PoloGang(Bar)-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PoloGang(Bar)-Bridging-Header.h"; sourceTree = "<group>"; };
-		835A9B5320CC5D9700FE5B69 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
-		835A9B5520CC5D9800FE5B69 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
 		835A9B5920CDFAE400FE5B69 /* FrontPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageVC.swift; sourceTree = "<group>"; };
 		835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMenuVC.swift; sourceTree = "<group>"; };
 		835A9B5F20D0B40300FE5B69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 		835A9B5120CC5D7300FE5B69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				835A9B5520CC5D9800FE5B69 /* SWRevealViewController.h */,
-				835A9B5320CC5D9700FE5B69 /* SWRevealViewController.m */,
+				832756CB2108CC8700217B7C /* SWRevealViewController.h */,
+				832756CC2108CC8700217B7C /* SWRevealViewController.m */,
 				835A9B5220CC5D9600FE5B69 /* PoloGang(Bar)-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
@@ -313,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */,
+				832756CD2108CC8700217B7C /* SWRevealViewController.m in Sources */,
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
@@ -327,7 +328,6 @@
 				835A9B4020CC5C6400FE5B69 /* AppDelegate.swift in Sources */,
 				83A4CCDA20D7229D0005BC7B /* BarModel.swift in Sources */,
 				83A4CCDC20D726FC0005BC7B /* ReviewsVC.swift in Sources */,
-				835A9B5620CC5D9800FE5B69 /* SWRevealViewController.m in Sources */,
 				835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */,
 				835A9B5A20CDFAE400FE5B69 /* FrontPageVC.swift in Sources */,
 				8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */,

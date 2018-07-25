@@ -17,8 +17,9 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     //properties
     var tableData: [Bar] = [Bar]() //array that holds the bars
-    var filteredBars: [String] = [String]() //array holding the filtered bars i.e. the search results
-    var bars: [String] = [String]()   //array holding the bar names
+    var filteredBars: [Bar] = [Bar]() //array holding the filtered bars i.e. the search results
+    var bars: [Bar] = [Bar]()   //array holding the bar names
+    var barNames: [String] = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
     
@@ -29,7 +30,7 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         listOfBars.dataSource = self
         listOfBars.delegate = self
         
-        filteredBars = bars
+      //  filteredBars = bars
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -37,6 +38,7 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         listOfBars.tableHeaderView = searchController.searchBar
         
         self.tableData = getBarData(url: URL_GETBARS)  //retrieve data from api
+        bars = tableData
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,20 +86,21 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     func updateSearchResults(for searchController: UISearchController) {
         // If we haven't typed anything into the search bar then do not filter the results
         if searchController.searchBar.text! == "" {
-            filteredBars = bars
+            tableData = populateBarNames(array: barNames)
         } else {
             // Filter the results
-            filteredBars =   extractBarNames(array: tableData).filter{ $0.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+            tableData = populateBarNames(array: barNames).filter{ $0.title.lowercased().contains(searchController.searchBar.text!.lowercased()) }
         }
 
         self.listOfBars.reloadData()
     }
     
-    func extractBarNames(array: [Bar]) -> [String]{
-        var result = [String]()
+    func populateBarNames(array: [String]) -> [Bar] {
+        var result = [Bar]()
         
-        for bar in array {
-            result.append(bar.title)
+        for name in array {
+            let str = name + ".jpg"
+            result.append(Bar(title: name, imageName: str))
         }
         
         return result
@@ -110,6 +113,8 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             (success) in
             if success {
                 print("Worked!")
+            } else {
+                print("Failed!")
             }
         }
         
@@ -117,6 +122,11 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func getBars() -> [Bar] {        //returns array
+        
+        if tableData.count == 0{
+            return [Bar]()
+        }
+        
         return tableData
     }
     
@@ -143,15 +153,15 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             }
             
             if let array = json["bars"] as? [String] {
-                self.bars = array
+                self.barNames = array
             }
             
-            for index in self.bars {
+            for index in self.barNames {
                 let imageName = index + ".jpg"
                 self.tableData.append(Bar(title: index, imageName: imageName))
             }
             
-            print(self.bars)
+            print(self.barNames)
             
             DispatchQueue.main.async {
                 self.listOfBars.reloadData()

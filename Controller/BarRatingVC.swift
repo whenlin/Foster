@@ -16,15 +16,21 @@ class BarRatingVC: UIViewController {
     @IBOutlet weak var barName: UILabel!
     @IBOutlet weak var barRating: UILabel!
     @IBOutlet weak var uberView: UIView!
+    @IBOutlet weak var barImage: UIImageView!
     
     
     var barAddress: String!
+    var nameOfBar: String!
+    var imageURL: String!
+    
     
   //  let uberBtn = RideRequestButton()
 //UNCOMMENT THIS WHEN YOU CONFIGURED THIS PROJECT WITH NECESSARY UBER DETAILS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        barName.text = nameOfBar
+        barImage.image = UIImage(named: imageURL)
         setupUberBtnConstraints()
     }
 
@@ -35,12 +41,9 @@ class BarRatingVC: UIViewController {
     
     func initRatings(bar: Bar){
         
-      //  self.barName.text = bar.title
-      //  self.barRating.text = barRating
-    }
-    
-    func initRatings_(barName: String){
-        self.barName.text = barName
+        nameOfBar = bar.title
+        imageURL = bar.imageName
+      //  self.barRating.text =
         //gonna have to call the api to get the respective bar's ratings
         //probs should implement a function that gets the ratings then place that function in viewDidLoad()
     }

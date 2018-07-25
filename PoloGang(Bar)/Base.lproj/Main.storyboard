@@ -484,6 +484,7 @@
                         <viewLayoutGuide key="safeArea" id="ZGr-Wh-O7W"/>
                     </view>
                     <connections>
+                        <outlet property="barImage" destination="5Wh-R4-ZFY" id="sq5-6P-1sR"/>
                         <outlet property="barName" destination="1sX-O7-9nb" id="hOV-fd-Vm3"/>
                         <outlet property="barRating" destination="zxB-XZ-fyJ" id="ofj-HL-a2L"/>
                         <outlet property="uberView" destination="I0s-3K-EBG" id="hTb-xh-tbF"/>
