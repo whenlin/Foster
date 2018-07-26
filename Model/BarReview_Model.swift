@@ -11,7 +11,8 @@ import Foundation
 struct BarReview{
     
     var barName: String!
-    var barRating: String!
+    var overallBarRating: String!
+    //should add more variables for the other ratings
     
     var review: String!
     

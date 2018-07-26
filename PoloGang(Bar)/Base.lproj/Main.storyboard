@@ -288,33 +288,6 @@
                                             <action selector="reviewsBtnClicked:" destination="ZjS-xH-dNF" eventType="touchUpInside" id="Nij-bg-rdP"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWO-fG-d85">
-                                        <rect key="frame" x="0.0" y="58" width="345" height="70"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efC-Z3-8h5" customClass="BorderButton" customModule="BarRank" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="Hjr-hT-3db"/>
-                                                </constraints>
-                                                <state key="normal" image="Lyft_Logo_Black">
-                                                    <color key="titleColor" red="0.01176470588" green="0.0" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3a-K7-MH2" customClass="BorderButton" customModule="BarRank" customModuleProvider="target">
-                                                <rect key="frame" x="172.5" y="0.0" width="172.5" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="id1-Tp-IRd"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="Logotype_digital_black_large">
-                                                    <color key="titleColor" red="0.01176470588" green="0.0" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="B3a-K7-MH2" firstAttribute="height" secondItem="efC-Z3-8h5" secondAttribute="height" id="dpP-JC-D83"/>
-                                            <constraint firstItem="B3a-K7-MH2" firstAttribute="width" secondItem="efC-Z3-8h5" secondAttribute="width" id="xvm-3n-ENj"/>
-                                        </constraints>
-                                    </stackView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxB-XZ-fyJ" customClass="CircularLabel" customModule="BarRank" customModuleProvider="target">
                                         <rect key="frame" x="137.5" y="-21" width="70" height="70"/>
                                         <color key="backgroundColor" red="1" green="0.74117647060000003" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -338,11 +311,8 @@
                                     <constraint firstItem="zxB-XZ-fyJ" firstAttribute="centerX" secondItem="I0s-3K-EBG" secondAttribute="centerX" id="MdL-uy-PcL"/>
                                     <constraint firstAttribute="height" constant="168" id="UHu-cE-moN"/>
                                     <constraint firstItem="zxB-XZ-fyJ" firstAttribute="top" secondItem="I0s-3K-EBG" secondAttribute="top" constant="-21" id="g2u-sG-Nuc"/>
-                                    <constraint firstItem="Ajf-oR-RXI" firstAttribute="top" secondItem="rWO-fG-d85" secondAttribute="bottom" id="mFP-pk-K3M"/>
-                                    <constraint firstAttribute="trailing" secondItem="rWO-fG-d85" secondAttribute="trailing" id="rF8-Ex-dS5"/>
                                     <constraint firstAttribute="bottom" secondItem="Ajf-oR-RXI" secondAttribute="bottom" id="rhJ-5x-ZLS"/>
                                     <constraint firstAttribute="trailing" secondItem="Ajf-oR-RXI" secondAttribute="trailing" id="tHo-s8-iZW"/>
-                                    <constraint firstItem="rWO-fG-d85" firstAttribute="leading" secondItem="I0s-3K-EBG" secondAttribute="leading" id="vIx-vg-8OG"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXz-Qf-JgB">
@@ -551,8 +521,6 @@
         <image name="Frogs" width="640" height="427"/>
         <image name="GoldStar" width="53" height="51"/>
         <image name="GoldStarEmpty" width="53" height="51"/>
-        <image name="Logotype_digital_black_large" width="2702" height="1180"/>
-        <image name="Lyft_Logo_Black" width="5640" height="4496"/>
         <image name="profileDefault" width="192" height="192"/>
         <image name="smackBack" width="28" height="28"/>
         <image name="smackBurger" width="40" height="40"/>
