@@ -10,9 +10,21 @@
 		8305259920E937E1009AC597 /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259820E937E1009AC597 /* ReviewsCell.swift */; };
 		8305259B20EA7D3D009AC597 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259A20EA7D3D009AC597 /* RoundedImageView.swift */; };
 		8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259C20EA81F3009AC597 /* RoundedButton.swift */; };
-		832756CD2108CC8700217B7C /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832756CC2108CC8700217B7C /* SWRevealViewController.m */; };
 		8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067520EC5DB300D8072C /* BarRatingVC.swift */; };
 		8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067720EC674F00D8072C /* BarReviewsService.swift */; };
+		8352291F210F67F40097AFD4 /* Brandon_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522913210F67F10097AFD4 /* Brandon_thin.otf */; };
+		83522920210F67F40097AFD4 /* Brandon_bld_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522914210F67F10097AFD4 /* Brandon_bld_it.otf */; };
+		83522921210F67F40097AFD4 /* Brandon_med.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522915210F67F20097AFD4 /* Brandon_med.otf */; };
+		83522922210F67F40097AFD4 /* Brandon_reg_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522916210F67F20097AFD4 /* Brandon_reg_it.otf */; };
+		83522923210F67F40097AFD4 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522917210F67F20097AFD4 /* Brandon_bld.otf */; };
+		83522924210F67F40097AFD4 /* Brandon_blk_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522918210F67F30097AFD4 /* Brandon_blk_it.otf */; };
+		83522925210F67F40097AFD4 /* Brandon_thin_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 83522919210F67F30097AFD4 /* Brandon_thin_it.otf */; };
+		83522926210F67F40097AFD4 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8352291A210F67F30097AFD4 /* Brandon_blk.otf */; };
+		83522927210F67F40097AFD4 /* Brandon_light_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8352291B210F67F30097AFD4 /* Brandon_light_it.otf */; };
+		83522928210F67F40097AFD4 /* Brandon_light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8352291C210F67F30097AFD4 /* Brandon_light.otf */; };
+		83522929210F67F40097AFD4 /* Brandon_med_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8352291D210F67F40097AFD4 /* Brandon_med_it.otf */; };
+		8352292A210F67F40097AFD4 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8352291E210F67F40097AFD4 /* Brandon_reg.otf */; };
+		8352292C210F71EA0097AFD4 /* DailyEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352292B210F71EA0097AFD4 /* DailyEventCell.swift */; };
 		8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08320F96ADF009030AF /* CircularLabel.swift */; };
 		8354E08620FA8169009030AF /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08520FA8169009030AF /* BorderButton.swift */; };
 		835A9B4020CC5C6400FE5B69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B3F20CC5C6400FE5B69 /* AppDelegate.swift */; };
@@ -24,6 +36,7 @@
 		835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */; };
 		835A9B6020D0B40300FE5B69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5F20D0B40300FE5B69 /* GradientView.swift */; };
 		835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */; };
+		8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B814210A7F9500D54334 /* SWRevealViewController.m */; };
 		83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */; };
 		83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD420D7191B0005BC7B /* BarListService.swift */; };
 		83A4CCD820D7199F0005BC7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD720D7199F0005BC7B /* Constants.swift */; };
@@ -36,10 +49,21 @@
 		8305259820E937E1009AC597 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
 		8305259A20EA7D3D009AC597 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		8305259C20EA81F3009AC597 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		832756CB2108CC8700217B7C /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../../../Volumes/VERBATIM HD/stuff/UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.h"; sourceTree = "<group>"; };
-		832756CC2108CC8700217B7C /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../../../Volumes/VERBATIM HD/stuff/UDEMY/iOS11 & Swift 4/Smack/Smack Assets/SWReveal/SWRevealViewController.m"; sourceTree = "<group>"; };
 		8342067520EC5DB300D8072C /* BarRatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRatingVC.swift; sourceTree = "<group>"; };
 		8342067720EC674F00D8072C /* BarReviewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReviewsService.swift; sourceTree = "<group>"; };
+		83522913210F67F10097AFD4 /* Brandon_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin.otf; sourceTree = "<group>"; };
+		83522914210F67F10097AFD4 /* Brandon_bld_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld_it.otf; sourceTree = "<group>"; };
+		83522915210F67F20097AFD4 /* Brandon_med.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_med.otf; sourceTree = "<group>"; };
+		83522916210F67F20097AFD4 /* Brandon_reg_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg_it.otf; sourceTree = "<group>"; };
+		83522917210F67F20097AFD4 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
+		83522918210F67F30097AFD4 /* Brandon_blk_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk_it.otf; sourceTree = "<group>"; };
+		83522919210F67F30097AFD4 /* Brandon_thin_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_thin_it.otf; sourceTree = "<group>"; };
+		8352291A210F67F30097AFD4 /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
+		8352291B210F67F30097AFD4 /* Brandon_light_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light_it.otf; sourceTree = "<group>"; };
+		8352291C210F67F30097AFD4 /* Brandon_light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_light.otf; sourceTree = "<group>"; };
+		8352291D210F67F40097AFD4 /* Brandon_med_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_med_it.otf; sourceTree = "<group>"; };
+		8352291E210F67F40097AFD4 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
+		8352292B210F71EA0097AFD4 /* DailyEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventCell.swift; sourceTree = "<group>"; };
 		8354E08320F96ADF009030AF /* CircularLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLabel.swift; sourceTree = "<group>"; };
 		8354E08520FA8169009030AF /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		835A9B3C20CC5C6300FE5B69 /* BarRank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarRank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +78,8 @@
 		835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMenuVC.swift; sourceTree = "<group>"; };
 		835A9B5F20D0B40300FE5B69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReview_Model.swift; sourceTree = "<group>"; };
+		8369B813210A7F9500D54334 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		8369B814210A7F9500D54334 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsCell.swift; sourceTree = "<group>"; };
 		83A4CCD420D7191B0005BC7B /* BarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarListService.swift; sourceTree = "<group>"; };
 		83A4CCD720D7199F0005BC7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -77,9 +103,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83522912210F60690097AFD4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				83522914210F67F10097AFD4 /* Brandon_bld_it.otf */,
+				83522917210F67F20097AFD4 /* Brandon_bld.otf */,
+				83522918210F67F30097AFD4 /* Brandon_blk_it.otf */,
+				8352291A210F67F30097AFD4 /* Brandon_blk.otf */,
+				8352291B210F67F30097AFD4 /* Brandon_light_it.otf */,
+				8352291C210F67F30097AFD4 /* Brandon_light.otf */,
+				8352291D210F67F40097AFD4 /* Brandon_med_it.otf */,
+				83522915210F67F20097AFD4 /* Brandon_med.otf */,
+				83522916210F67F20097AFD4 /* Brandon_reg_it.otf */,
+				8352291E210F67F40097AFD4 /* Brandon_reg.otf */,
+				83522919210F67F30097AFD4 /* Brandon_thin_it.otf */,
+				83522913210F67F10097AFD4 /* Brandon_thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		835A9B3320CC5C6300FE5B69 = {
 			isa = PBXGroup;
 			children = (
+				83522912210F60690097AFD4 /* Fonts */,
 				83A4CCD620D7197E0005BC7B /* Utilities */,
 				83A4CCD320D718F20005BC7B /* Services */,
 				835A9B5E20CE00A600FE5B69 /* Model */,
@@ -117,8 +163,8 @@
 		835A9B5120CC5D7300FE5B69 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				832756CB2108CC8700217B7C /* SWRevealViewController.h */,
-				832756CC2108CC8700217B7C /* SWRevealViewController.m */,
+				8369B813210A7F9500D54334 /* SWRevealViewController.h */,
+				8369B814210A7F9500D54334 /* SWRevealViewController.m */,
 				835A9B5220CC5D9600FE5B69 /* PoloGang(Bar)-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
@@ -145,6 +191,7 @@
 				8305259820E937E1009AC597 /* ReviewsCell.swift */,
 				8305259A20EA7D3D009AC597 /* RoundedImageView.swift */,
 				8354E08520FA8169009030AF /* BorderButton.swift */,
+				8352292B210F71EA0097AFD4 /* DailyEventCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,8 +302,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				835A9B4A20CC5C6A00FE5B69 /* LaunchScreen.storyboard in Resources */,
+				8352291F210F67F40097AFD4 /* Brandon_thin.otf in Resources */,
 				835A9B4720CC5C6A00FE5B69 /* Assets.xcassets in Resources */,
+				83522923210F67F40097AFD4 /* Brandon_bld.otf in Resources */,
 				835A9B4520CC5C6400FE5B69 /* Main.storyboard in Resources */,
+				8352292A210F67F40097AFD4 /* Brandon_reg.otf in Resources */,
+				83522920210F67F40097AFD4 /* Brandon_bld_it.otf in Resources */,
+				83522927210F67F40097AFD4 /* Brandon_light_it.otf in Resources */,
+				83522926210F67F40097AFD4 /* Brandon_blk.otf in Resources */,
+				83522929210F67F40097AFD4 /* Brandon_med_it.otf in Resources */,
+				83522924210F67F40097AFD4 /* Brandon_blk_it.otf in Resources */,
+				83522921210F67F40097AFD4 /* Brandon_med.otf in Resources */,
+				83522925210F67F40097AFD4 /* Brandon_thin_it.otf in Resources */,
+				83522922210F67F40097AFD4 /* Brandon_reg_it.otf in Resources */,
+				83522928210F67F40097AFD4 /* Brandon_light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,9 +372,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */,
-				832756CD2108CC8700217B7C /* SWRevealViewController.m in Sources */,
+				8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */,
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
+				8352292C210F71EA0097AFD4 /* DailyEventCell.swift in Sources */,
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,
 				8354E08620FA8169009030AF /* BorderButton.swift in Sources */,

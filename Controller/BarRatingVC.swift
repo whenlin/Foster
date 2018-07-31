@@ -68,7 +68,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         barName.text = nameOfBar
         barImage.image = UIImage(named: imageURL)
-        setupUberBtnConstraints()
+     //   setupUberBtnConstraints()
         
         //  UNCOMMENT THE BLOCK BELOW WHEN YOU ARE READYYY - WILLIAM!!!!!!!!!!!!!!!!!!!!!!!!!
         
