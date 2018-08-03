@@ -18,11 +18,15 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var barRating: UILabel!
     @IBOutlet weak var uberView: UIView!
     @IBOutlet weak var barImage: UIImageView!
+    @IBOutlet weak var listOfReviews: UITableView!
     
     
+    
+    //Variables
     var barAddress: String!
     var nameOfBar: String!
     var imageURL: String!
+    var reviews: [String] = [String]()
     
     
   //  let uberBtn = RideRequestButton()
@@ -121,4 +125,44 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate {
         view.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
     }
     
+    func getReviews(completion: @escaping CompletionHandler) -> [String] {
+
+        let jsonURL = URL_GETREVIEWS + nameOfBar
+        let url = URL(string: jsonURL)
+
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
+
+            guard error == nil else {
+                print("returned error")
+                return
+            }
+
+            guard let content = data else {
+                print("No data")
+                return
+            }
+
+            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                print("Not containing JSON")
+                return
+            }
+
+            if let array = json["reviews"] as? [String] {
+                self.reviews = array
+            }
+
+
+            print(self.reviews)
+
+            DispatchQueue.main.async {
+                self.listOfReviews.reloadData()
+            }
+
+        }
+
+        task.resume()
+
+
+        return reviews
+    }
 }

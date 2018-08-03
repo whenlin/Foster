@@ -8,12 +8,13 @@
 
 import Foundation
 
-struct BarReview{
+struct BarProfile{
     
     var barName: String!
     var overallBarRating: String!
+    var streetAddress: String!
+    var province: String!
+    var city: String!
     //should add more variables for the other ratings
-    
-    var review: String!
     
 }

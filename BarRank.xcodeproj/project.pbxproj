@@ -35,13 +35,14 @@
 		835A9B5A20CDFAE400FE5B69 /* FrontPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5920CDFAE400FE5B69 /* FrontPageVC.swift */; };
 		835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */; };
 		835A9B6020D0B40300FE5B69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5F20D0B40300FE5B69 /* GradientView.swift */; };
-		835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */; };
+		835A9B6220D0B59500FE5B69 /* BarProfile_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarProfile_Model.swift */; };
 		8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B814210A7F9500D54334 /* SWRevealViewController.m */; };
 		83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */; };
 		83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD420D7191B0005BC7B /* BarListService.swift */; };
 		83A4CCD820D7199F0005BC7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD720D7199F0005BC7B /* Constants.swift */; };
 		83A4CCDA20D7229D0005BC7B /* BarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD920D7229D0005BC7B /* BarModel.swift */; };
 		83A4CCDC20D726FC0005BC7B /* ReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */; };
+		83B6C2BE2114AD640013A6FB /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B6C2BD2114AD640013A6FB /* ReviewModel.swift */; };
 		ED93735C8D99ADE1D2545031 /* Pods_BarRank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +78,7 @@
 		835A9B5920CDFAE400FE5B69 /* FrontPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageVC.swift; sourceTree = "<group>"; };
 		835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMenuVC.swift; sourceTree = "<group>"; };
 		835A9B5F20D0B40300FE5B69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReview_Model.swift; sourceTree = "<group>"; };
+		835A9B6120D0B59500FE5B69 /* BarProfile_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProfile_Model.swift; sourceTree = "<group>"; };
 		8369B813210A7F9500D54334 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8369B814210A7F9500D54334 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsCell.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		83A4CCD720D7199F0005BC7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		83A4CCD920D7229D0005BC7B /* BarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarModel.swift; sourceTree = "<group>"; };
 		83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsVC.swift; sourceTree = "<group>"; };
+		83B6C2BD2114AD640013A6FB /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarRank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF15CBCCF427ACEB60E808E /* Pods_PoloGang_Bar_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoloGang_Bar_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C11E2F532C57406DA0310B /* Pods-BarRank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarRank.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarRank/Pods-BarRank.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,8 +201,9 @@
 		835A9B5E20CE00A600FE5B69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */,
+				835A9B6120D0B59500FE5B69 /* BarProfile_Model.swift */,
 				83A4CCD920D7229D0005BC7B /* BarModel.swift */,
+				83B6C2BD2114AD640013A6FB /* ReviewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,9 +391,10 @@
 				835A9B4020CC5C6400FE5B69 /* AppDelegate.swift in Sources */,
 				83A4CCDA20D7229D0005BC7B /* BarModel.swift in Sources */,
 				83A4CCDC20D726FC0005BC7B /* ReviewsVC.swift in Sources */,
-				835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */,
+				835A9B6220D0B59500FE5B69 /* BarProfile_Model.swift in Sources */,
 				835A9B5A20CDFAE400FE5B69 /* FrontPageVC.swift in Sources */,
 				8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */,
+				83B6C2BE2114AD640013A6FB /* ReviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
