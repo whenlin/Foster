@@ -11,19 +11,22 @@ import CoreLocation
 //import UberRides
 //CONFIGURE THIS PROJECT WITH UBER CREDENTIALS ETC FROM GITHUB SDK BEFORE YOU UNCOMMENT THIS!!!
 
-class BarRatingVC: UIViewController, CLLocationManagerDelegate {
+class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate{
+    
+    
 
     //Outlets
     @IBOutlet weak var barName: UILabel!
     @IBOutlet weak var barRating: UILabel!
     @IBOutlet weak var uberView: UIView!
     @IBOutlet weak var barImage: UIImageView!
-    
+    @IBOutlet weak var listOfReviews: UITableView!
+    @IBOutlet weak var showAllReviewsBtn: UIButton!
     
     var barAddress: String!
     var nameOfBar: String!
     var imageURL: String!
-    
+    var reviews: [BarReview] = [BarReview]()
     
   //  let uberBtn = RideRequestButton()
 //UNCOMMENT THIS WHEN YOU CONFIGURED THIS PROJECT WITH NECESSARY UBER DETAILS
@@ -68,6 +71,20 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         barName.text = nameOfBar
         barImage.image = UIImage(named: imageURL)
+        listOfReviews.dataSource = self
+        listOfReviews.delegate = self
+        
+        reviews = self.getInitialReviews(){
+            (success) in
+            if success {
+                print("Worked!")
+            } else {
+                print("Failed!")
+            }
+        }
+        
+        
+        
      //   setupUberBtnConstraints()
         
         //  UNCOMMENT THE BLOCK BELOW WHEN YOU ARE READYYY - WILLIAM!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -106,6 +123,76 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func reviewsBtnClicked(_ sender: Any) { //navigates user to the page where they can rate the spot
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.reviews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewsCell") as? ReviewsCell{
+            let review = self.getReviews()[indexPath.row]
+            cell.updateViews(review: review)
+            return cell
+        } else {
+            return ReviewsCell()
+        }
+    }
+    
+    func getReviews() -> [BarReview]{
+        return reviews
+    }
+    
+    func getInitialReviews(completion: @escaping CompletionHandler) -> [BarReview] {
+        //get limited number of reviews from api
+        let jsonURL = URL_GETREVIEWS + nameOfBar
+        let url = URL(string: jsonURL)
+
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
+
+            guard error == nil else {
+                print("returned error")
+                return
+            }
+
+            guard let content = data else {
+                print("No data")
+                return
+            }
+
+            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                print("Not containing JSON")
+                return
+            }
+
+            print(json["reviews"] as Any)
+            
+            if let array = json["reviews"] as? [String] {
+                print(array)
+                // self.barNames = array
+            }
+
+//            for index in self.barNames {
+//                let imageName = index + ".jpg"
+//                self.tableData.append(Bar(title: index, imageName: imageName))
+//            }
+//
+//            print(self.barNames)
+//
+            DispatchQueue.main.async {
+                self.listOfReviews.reloadData()
+            }
+
+        }
+
+        task.resume()
+        
+        
+        return reviews
+    }
+    
+    func getAllReviews() {
+        //get all reviews for specified bar from api
     }
     
     func setupUberBtnConstraints(){         //function name is self-explanatory

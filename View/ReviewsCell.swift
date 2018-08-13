@@ -10,6 +10,12 @@ import UIKit
 
 class ReviewsCell: UITableViewCell {
 
+    //Outlets
+    @IBOutlet weak var theReview: UILabel!
+    @IBOutlet weak var nameOfReviewer: UILabel!
+    @IBOutlet weak var schoolOfReviewer: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +25,10 @@ class ReviewsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateViews(review: BarReview) {
+        
     }
 
 }
