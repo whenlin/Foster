@@ -160,18 +160,30 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 return
             }
 
-            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                print("Not containing JSON")
+//            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+//                print("Not containing JSON")
+//                return
+//            }
+            
+            guard let barReview = try? JSONDecoder().decode(Review.self, from: content) else {
+                print("Error: Couldn't decode data into Reviews")
                 return
             }
-
-            print(json["reviews"] as Any)
             
-            if let array = json["reviews"] as? [String] {
-                print(array)
-                // self.barNames = array
+            let review_json_array = barReview.reviews
+            
+            print(review_json_array[0])
+            
+            for eachReview in review_json_array {
+                var review: BarReview! = BarReview()
+                review._id = eachReview._id
+                review.barName = eachReview.barName
+                review.institution = eachReview.institution
+                review.message = eachReview.message
+                review.personName = eachReview.personName
+                self.reviews.append(review)
             }
-
+            
 //            for index in self.barNames {
 //                let imageName = index + ".jpg"
 //                self.tableData.append(Bar(title: index, imageName: imageName))

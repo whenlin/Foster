@@ -36,6 +36,7 @@
 		835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */; };
 		835A9B6020D0B40300FE5B69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B5F20D0B40300FE5B69 /* GradientView.swift */; };
 		835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */; };
+		835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DB8F02123D2980082731A /* ReviewsFromApi.swift */; };
 		8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B814210A7F9500D54334 /* SWRevealViewController.m */; };
 		83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */; };
 		83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD420D7191B0005BC7B /* BarListService.swift */; };
@@ -78,6 +79,7 @@
 		835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMenuVC.swift; sourceTree = "<group>"; };
 		835A9B5F20D0B40300FE5B69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReview_Model.swift; sourceTree = "<group>"; };
+		835DB8F02123D2980082731A /* ReviewsFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFromApi.swift; sourceTree = "<group>"; };
 		8369B813210A7F9500D54334 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8369B814210A7F9500D54334 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsCell.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */,
 				83A4CCD920D7229D0005BC7B /* BarModel.swift */,
+				835DB8F02123D2980082731A /* ReviewsFromApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */,
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
+				835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */,
 				8352292C210F71EA0097AFD4 /* DailyEventCell.swift in Sources */,
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,

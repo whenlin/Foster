@@ -8,13 +8,23 @@
 
 import Foundation
 
-struct BarReview{
+struct BarReview : Decodable {
     
-    var nameOfReviewer: String!
+    var barName: String!
+    var personName: String!
     var institution: String!
+    var _id: String!
+    var message: String!
+    
     //var overallBarRating: String!
     //should add more variables for the other ratings
     
-    var review: String!
+    enum CodingKeys: String, CodingKey {
+        case _id
+        case barName
+        case personName
+        case message
+        case institution = "school"
+    }
     
 }

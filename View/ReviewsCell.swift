@@ -28,7 +28,9 @@ class ReviewsCell: UITableViewCell {
     }
     
     func updateViews(review: BarReview) {
-        
+        nameOfReviewer.text = review.personName
+        theReview.text = review.message
+        schoolOfReviewer.text = review.institution
     }
 
 }
