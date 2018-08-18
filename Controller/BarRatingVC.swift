@@ -73,6 +73,8 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         barImage.image = UIImage(named: imageURL)
         listOfReviews.dataSource = self
         listOfReviews.delegate = self
+        listOfReviews.rowHeight = UITableViewAutomaticDimension
+        listOfReviews.estimatedRowHeight = 70
         
         reviews = self.getInitialReviews(){
             (success) in
