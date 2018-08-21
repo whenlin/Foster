@@ -12,9 +12,10 @@ class ReviewsCell: UITableViewCell {
 
     //Outlets
     @IBOutlet weak var theReview: UILabel!
-    @IBOutlet weak var nameOfReviewer: UILabel!
-    @IBOutlet weak var schoolOfReviewer: UILabel!
     
+    var reviewerName: String!
+    var reviewerSchool: String!
+    var review: String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,9 +29,11 @@ class ReviewsCell: UITableViewCell {
     }
     
     func updateViews(review: BarReview) {
-        nameOfReviewer.text = review.personName
-        theReview.text = review.message
-        schoolOfReviewer.text = review.institution
+        reviewerName = review.personName
+        self.review = review.message
+        reviewerSchool = review.institution
+        
+        theReview.text = self.review + "\n" + reviewerName + " - " + reviewerSchool
     }
 
 }

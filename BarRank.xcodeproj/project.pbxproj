@@ -38,6 +38,7 @@
 		835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */; };
 		835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DB8F02123D2980082731A /* ReviewsFromApi.swift */; };
 		8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B814210A7F9500D54334 /* SWRevealViewController.m */; };
+		838B6245212A442E00CF29F9 /* createReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B6244212A442E00CF29F9 /* createReviewsVC.swift */; };
 		83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */; };
 		83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD420D7191B0005BC7B /* BarListService.swift */; };
 		83A4CCD820D7199F0005BC7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD720D7199F0005BC7B /* Constants.swift */; };
@@ -82,6 +83,7 @@
 		835DB8F02123D2980082731A /* ReviewsFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFromApi.swift; sourceTree = "<group>"; };
 		8369B813210A7F9500D54334 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8369B814210A7F9500D54334 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		838B6244212A442E00CF29F9 /* createReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createReviewsVC.swift; sourceTree = "<group>"; };
 		83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsCell.swift; sourceTree = "<group>"; };
 		83A4CCD420D7191B0005BC7B /* BarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarListService.swift; sourceTree = "<group>"; };
 		83A4CCD720D7199F0005BC7B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */,
 				83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */,
 				8342067520EC5DB300D8072C /* BarRatingVC.swift */,
+				838B6244212A442E00CF29F9 /* createReviewsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,
 				8354E08620FA8169009030AF /* BorderButton.swift in Sources */,
+				838B6245212A442E00CF29F9 /* createReviewsVC.swift in Sources */,
 				8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */,
 				8305259920E937E1009AC597 /* ReviewsCell.swift in Sources */,
 				8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */,
