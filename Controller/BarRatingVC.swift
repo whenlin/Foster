@@ -22,6 +22,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     @IBOutlet weak var barImage: UIImageView!
     @IBOutlet weak var listOfReviews: UITableView!
     @IBOutlet weak var showAllReviewsBtn: UIButton!
+    @IBOutlet weak var loadingCommentsIndicator: UIActivityIndicatorView!
     
     var barAddress: String!
     var nameOfBar: String!
@@ -124,7 +125,16 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     }
     
     @IBAction func reviewsBtnClicked(_ sender: Any) { //navigates user to the page where they can rate the spot
-        
+        let bar = Bar(title: nameOfBar, imageName: imageURL)
+        performSegue(withIdentifier: "makeReview", sender: bar)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                if let initReviewsVC = segue.destination as? initReviewsVC{
+                      
+                    initReviewsVC.initVC(nameOfBar: self.nameOfBar)
+                }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -205,9 +215,10 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         return reviews
     }
     
-    func getAllReviews() {
-        //get all reviews for specified bar from api
+    @IBAction func getAllReviews(_ sender: Any) {
+        
     }
+    
     
     func setupUberBtnConstraints(){         //function name is self-explanatory
         uberView.translatesAutoresizingMaskIntoConstraints = false

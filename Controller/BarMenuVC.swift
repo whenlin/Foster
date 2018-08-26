@@ -67,7 +67,7 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//          if let reviewsVC = segue.destination as? ReviewsVC{
+//        if let reviewsVC = segue.destination as? ReviewsVC{
 //              assert(sender as? Bar != nil)
 //              reviewsVC.initBars(bar: sender as! Bar)
 //        }

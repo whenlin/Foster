@@ -7,18 +7,108 @@
 //
 
 import UIKit
+import Cosmos
 
-class createReviewsVC: UIViewController {
+class createReviewsVC: UIViewController,UITextViewDelegate {
 
+    var review = BarReview()
+    
+    //Outlets
+    @IBOutlet weak var drinksRating: CosmosView!
+    @IBOutlet weak var musicRating: CosmosView!
+    @IBOutlet weak var waitRating: CosmosView!
+    @IBOutlet weak var washroomRating: CosmosView!
+    @IBOutlet weak var comments: UITextView!
+    @IBOutlet weak var submitBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        submitBtn.isEnabled = false
+        submitBtn.isHidden = true
         // Do any additional setup after loading the view.
+        print(review)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func passReviewInfo(review: BarReview){
+        self.review = review
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == self.comments {
+            self.submitBtn.isEnabled = !comments.text.isEmpty
+            self.submitBtn.isHidden = comments.text.isEmpty
+        }
+    }
 
+    @IBAction func submitBtnClicked(_ sender: Any) {
+        
+        review.message = comments.text
+        
+        var reviewToSend = reviewMessage()
+        reviewToSend._id = ""
+        reviewToSend.barName = review.barName
+        reviewToSend.institution = review.institution
+        reviewToSend.message = review.message
+        reviewToSend.personName = review.personName
+        
+        sendReviewToServer(theReview: reviewToSend){
+            (success) in
+            if (success != nil) {
+                
+                print(success as Any)
+            } else {
+                print("Failed!")
+            }
+        }
+    }
+    
+    func sendReviewToServer(theReview: reviewMessage, completion:((Error?) -> Void)?){
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.path = "/addReview"
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        // Specify this request as being a POST method
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        
+        // Now let's encode out Post struct into JSON data...
+        let encoder = JSONEncoder()
+        do {
+            let jsonData = try encoder.encode(theReview)
+            // ... and set our request's HTTP body
+            request.httpBody = jsonData
+            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
+        } catch {
+            completion?(error)
+        }
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else {
+                completion?(responseError!)
+                return
+            }
+            
+           
+        }
+        
+        task.resume()
+        
+    }
 }
