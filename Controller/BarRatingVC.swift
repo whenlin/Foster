@@ -32,6 +32,11 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
   //  let uberBtn = RideRequestButton()
 //UNCOMMENT THIS WHEN YOU CONFIGURED THIS PROJECT WITH NECESSARY UBER DETAILS
     
+    @IBAction func unwindToBarRatingVC(segue:UIStoryboardSegue) {
+        
+    }
+
+    
     let locationManager = CLLocationManager()
     
     
@@ -157,7 +162,8 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     
     func getInitialReviews(completion: @escaping CompletionHandler) -> [BarReview] {
         //get limited number of reviews from api
-        let jsonURL = URL_GETREVIEWS + nameOfBar
+        var jsonURL = URL_GETREVIEWS
+        jsonURL += nameOfBar
         let url = URL(string: jsonURL)
 
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
@@ -184,16 +190,19 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             
             let review_json_array = barReview.reviews
             
-            print(review_json_array[0])
+            if review_json_array.count > 0 {
             
-            for eachReview in review_json_array {
-                var review: BarReview! = BarReview()
-                review._id = eachReview._id
-                review.barName = eachReview.barName
-                review.institution = eachReview.institution
-                review.message = eachReview.message
-                review.personName = eachReview.personName
-                self.reviews.append(review)
+                print(review_json_array[0])
+                
+                for eachReview in review_json_array {
+                    var review: BarReview! = BarReview()
+                    review._id = eachReview._id
+                    review.barName = eachReview.barName
+                    review.institution = eachReview.institution
+                    review.message = eachReview.message
+                    review.personName = eachReview.personName
+                    self.reviews.append(review)
+                }
             }
             
 //            for index in self.barNames {
@@ -215,8 +224,74 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         return reviews
     }
     
-    @IBAction func getAllReviews(_ sender: Any) {
+    func getAllReviews(completion: @escaping CompletionHandler) -> [BarReview] {
         
+        let jsonURL = URL_GETALLREVIEWS + nameOfBar
+        let url = URL(string: jsonURL)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
+            
+            guard error == nil else {
+                print("returned error")
+                return
+            }
+            
+            guard let content = data else {
+                print("No data")
+                return
+            }
+            
+            //            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+            //                print("Not containing JSON")
+            //                return
+            //            }
+            
+            guard let barReview = try? JSONDecoder().decode(Review.self, from: content) else {
+                print("Error: Couldn't decode data into Reviews")
+                return
+            }
+            
+            let review_json_array = barReview.reviews
+            
+            print(review_json_array[0])
+            
+            for eachReview in review_json_array {
+                var review: BarReview! = BarReview()
+                review._id = eachReview._id
+                review.barName = eachReview.barName
+                review.institution = eachReview.institution
+                review.message = eachReview.message
+                review.personName = eachReview.personName
+                self.reviews.append(review)
+            }
+            
+            //            for index in self.barNames {
+            //                let imageName = index + ".jpg"
+            //                self.tableData.append(Bar(title: index, imageName: imageName))
+            //            }
+            //
+            //            print(self.barNames)
+            //
+            DispatchQueue.main.async {
+                self.listOfReviews.reloadData()
+            }
+            
+        }
+        
+        task.resume()
+        
+        return reviews
+    }
+    
+    @IBAction func getAllReviews(_ sender: Any) {
+        reviews = self.getAllReviews(){
+            (success) in
+            if success {
+                print("Worked!")
+            } else {
+                print("Failed!")
+            }
+        }
     }
     
     

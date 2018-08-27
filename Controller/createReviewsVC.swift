@@ -46,7 +46,7 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
         }
     }
 
-    @IBAction func submitBtnClicked(_ sender: Any) {
+    func submitBtnClicked() {
         
         review.message = comments.text
         
@@ -109,6 +109,14 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
         }
         
         task.resume()
+    }
+    
+    @IBAction func unwindToBarRatingVC(segue: UIStoryboardSegue) {
+        print("Unwinding to Bar Profile")
+        submitBtnClicked()
+        performSegue(withIdentifier: "unwindToBarRating", sender: self)
         
     }
+
+    
 }

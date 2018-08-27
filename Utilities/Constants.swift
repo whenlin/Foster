@@ -14,6 +14,7 @@ typealias CompletionHandler = (_ Success: Bool) -> ()
 let BASE_URL = "https://bar-app-whenlin.c9users.io/"
 let URL_GETBARS = "\(BASE_URL)bars/"
 let URL_GETREVIEWS = "\(BASE_URL)reviews/"
+let URL_GETALLREVIEWS = "\(BASE_URL)allReviews/"
 
 
 //Segues
