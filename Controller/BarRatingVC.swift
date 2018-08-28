@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Cosmos
 //import UberRides
 //CONFIGURE THIS PROJECT WITH UBER CREDENTIALS ETC FROM GITHUB SDK BEFORE YOU UNCOMMENT THIS!!!
 
@@ -23,17 +24,23 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     @IBOutlet weak var listOfReviews: UITableView!
     @IBOutlet weak var showAllReviewsBtn: UIButton!
     @IBOutlet weak var loadingCommentsIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var drinksRating: CosmosView!
+    @IBOutlet weak var linesRating: CosmosView!
+    @IBOutlet weak var washroomsRating: CosmosView!
+    @IBOutlet weak var musicRating: CosmosView!
+    @IBOutlet weak var overallBarRating: CircularLabel!    //this is calculated by averaging the above ratings
     
     var barAddress: String!
     var nameOfBar: String!
     var imageURL: String!
     var reviews: [BarReview] = [BarReview]()
+    var ratings: [RatingsReceived] = [RatingsReceived]()
     
   //  let uberBtn = RideRequestButton()
 //UNCOMMENT THIS WHEN YOU CONFIGURED THIS PROJECT WITH NECESSARY UBER DETAILS
     
     @IBAction func unwindToBarRatingVC(segue:UIStoryboardSegue) {
-        
+        self.listOfReviews.reloadData()
     }
 
     
@@ -82,17 +89,23 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         listOfReviews.rowHeight = UITableViewAutomaticDimension
         listOfReviews.estimatedRowHeight = 70
         
-        reviews = self.getInitialReviews(){
-            (success) in
-            if success {
-                print("Worked!")
+//        reviews = self.getInitialReviews(){
+//            (success) in
+//            if success {
+//                print("Worked!")
+//            } else {
+//                print("Failed!")
+//            }
+//        }
+        
+           self.fetchInitialReviews() {
+            (error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
             } else {
-                print("Failed!")
+                print("Success!!!")
             }
         }
-        
-        
-        
      //   setupUberBtnConstraints()
         
         //  UNCOMMENT THE BLOCK BELOW WHEN YOU ARE READYYY - WILLIAM!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -109,7 +122,10 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
 //            locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
 //            locationManager.startUpdatingLocation()
 //        }
+        
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -160,30 +176,99 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         return reviews
     }
     
-    func getInitialReviews(completion: @escaping CompletionHandler) -> [BarReview] {
-        //get limited number of reviews from api
-        var jsonURL = URL_GETREVIEWS
-        jsonURL += nameOfBar
-        let url = URL(string: jsonURL)
-
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
-
-            guard error == nil else {
-                print("returned error")
+    func fetchBarRatings(completion:((Error?) -> Void)?) {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.path = "/ratings/" + nameOfBar
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        // Specify this request as being a POST method
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else {
+                completion?(responseError!)
                 return
             }
-
-            guard let content = data else {
-                print("No data")
-                return
-            }
-
-//            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-//                print("Not containing JSON")
-//                return
-//            }
             
-            guard let barReview = try? JSONDecoder().decode(Review.self, from: content) else {
+            // APIs usually respond with the data you just sent in your POST request
+            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Representation)
+            } else {
+                print("no readable data received in response")
+            }
+            
+            guard let barRating = try? JSONDecoder().decode(RatingsFromServer.self, from: responseData!) else {
+                print("Error: Couldn't decode data into Reviews")
+                return
+            }
+            
+            let rating_json_array = barRating.ratings
+            
+            if rating_json_array.count > 0 {
+                
+                print(rating_json_array[0])
+                
+                for eachRating in rating_json_array {
+                    var rating: RatingsReceived! = RatingsReceived()
+                    rating.waitTime = eachRating.waitTime
+                    rating.barName = eachRating.barName
+                    rating.drinks = eachRating.drinks
+                    rating.washrooms = eachRating.washrooms
+                    rating.music = eachRating.music
+                    self.ratings.append(rating)
+                }
+            }
+        }
+        task.resume()
+    }
+
+    
+    func fetchInitialReviews(completion:((Error?) -> Void)?) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.path = "/reviews/" + nameOfBar
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        // Specify this request as being a POST method
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else {
+                completion?(responseError!)
+                return
+            }
+            
+            // APIs usually respond with the data you just sent in your POST request
+            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Representation)
+            } else {
+                print("no readable data received in response")
+            }
+            
+            guard let barReview = try? JSONDecoder().decode(Review.self, from: responseData!) else {
                 print("Error: Couldn't decode data into Reviews")
                 return
             }
@@ -191,7 +276,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             let review_json_array = barReview.reviews
             
             if review_json_array.count > 0 {
-            
+                
                 print(review_json_array[0])
                 
                 for eachReview in review_json_array {
@@ -205,91 +290,90 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 }
             }
             
-//            for index in self.barNames {
-//                let imageName = index + ".jpg"
-//                self.tableData.append(Bar(title: index, imageName: imageName))
-//            }
-//
-//            print(self.barNames)
-//
             DispatchQueue.main.async {
                 self.listOfReviews.reloadData()
             }
-
+            
         }
-
         task.resume()
         
-        
-        return reviews
     }
+
     
-    func getAllReviews(completion: @escaping CompletionHandler) -> [BarReview] {
+    func getAllReviews(completion:((Error?) -> Void)?) -> [BarReview] { //MODIFY THIS FUNCTION LIKE THE ONE ABOVE
         
-        let jsonURL = URL_GETALLREVIEWS + nameOfBar
-        let url = URL(string: jsonURL)
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.path = "/allReviews/" + nameOfBar
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
-            
-            guard error == nil else {
-                print("returned error")
+        // Specify this request as being a POST method
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else {
+                completion?(responseError!)
                 return
             }
             
-            guard let content = data else {
-                print("No data")
-                return
+            // APIs usually respond with the data you just sent in your POST request
+            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Representation)
+            } else {
+                print("no readable data received in response")
             }
             
-            //            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-            //                print("Not containing JSON")
-            //                return
-            //            }
-            
-            guard let barReview = try? JSONDecoder().decode(Review.self, from: content) else {
+            guard let barReview = try? JSONDecoder().decode(Review.self, from: responseData!) else {
                 print("Error: Couldn't decode data into Reviews")
                 return
             }
             
             let review_json_array = barReview.reviews
             
-            print(review_json_array[0])
-            
-            for eachReview in review_json_array {
-                var review: BarReview! = BarReview()
-                review._id = eachReview._id
-                review.barName = eachReview.barName
-                review.institution = eachReview.institution
-                review.message = eachReview.message
-                review.personName = eachReview.personName
-                self.reviews.append(review)
+            if review_json_array.count > 0 {
+                
+                print(review_json_array[0])
+                
+                for eachReview in review_json_array {
+                    var review: BarReview! = BarReview()
+                    review._id = eachReview._id
+                    review.barName = eachReview.barName
+                    review.institution = eachReview.institution
+                    review.message = eachReview.message
+                    review.personName = eachReview.personName
+                    self.reviews.append(review)
+                }
             }
             
-            //            for index in self.barNames {
-            //                let imageName = index + ".jpg"
-            //                self.tableData.append(Bar(title: index, imageName: imageName))
-            //            }
-            //
-            //            print(self.barNames)
-            //
             DispatchQueue.main.async {
                 self.listOfReviews.reloadData()
             }
             
         }
-        
         task.resume()
         
         return reviews
     }
     
     @IBAction func getAllReviews(_ sender: Any) {
+        reviews.removeAll()
         reviews = self.getAllReviews(){
-            (success) in
-            if success {
-                print("Worked!")
+            (error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
             } else {
-                print("Failed!")
+                print("Success!!!!!")
             }
         }
     }
@@ -309,3 +393,4 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     }
     
 }
+

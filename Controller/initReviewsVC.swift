@@ -61,20 +61,20 @@ class initReviewsVC: UIViewController {
             otherBtn.widthAnchor.constraint(equalToConstant: otherBtn.frame.width)])
         
         NSLayoutConstraint.activate([
-            maleBtn.centerYAnchor.constraint(equalTo: schoolView.centerYAnchor),
-            maleBtn.leadingAnchor.constraint(equalTo: schoolView.leadingAnchor, constant: 16),
+            maleBtn.centerYAnchor.constraint(equalTo: genderView.centerYAnchor),
+            maleBtn.leadingAnchor.constraint(equalTo: genderView.leadingAnchor, constant: 16),
             maleBtn.heightAnchor.constraint(equalToConstant: westernBtn.frame.height),
             maleBtn.widthAnchor.constraint(equalToConstant: westernBtn.frame.width)])
         
         NSLayoutConstraint.activate([
-            femaleBtn.centerYAnchor.constraint(equalTo: schoolView.centerYAnchor),
-            femaleBtn.centerXAnchor.constraint(equalTo: schoolView.centerXAnchor),
+            femaleBtn.centerYAnchor.constraint(equalTo: genderView.centerYAnchor),
+            femaleBtn.centerXAnchor.constraint(equalTo: genderView.centerXAnchor),
             femaleBtn.heightAnchor.constraint(equalToConstant: fanshaweBtn.frame.height),
             femaleBtn.widthAnchor.constraint(equalToConstant: fanshaweBtn.frame.width)])
         
         NSLayoutConstraint.activate([
-            otherGenderBtn.centerYAnchor.constraint(equalTo: schoolView.centerYAnchor),
-            otherGenderBtn.trailingAnchor.constraint(equalTo: schoolView.trailingAnchor, constant: -16),
+            otherGenderBtn.centerYAnchor.constraint(equalTo: genderView.centerYAnchor),
+            otherGenderBtn.trailingAnchor.constraint(equalTo: genderView.trailingAnchor, constant: -16),
             otherGenderBtn.heightAnchor.constraint(equalToConstant: otherBtn.frame.height),
             otherGenderBtn.widthAnchor.constraint(equalToConstant: otherBtn.frame.width)])
         

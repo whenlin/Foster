@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/BarRatingVC.swift"
-            timestampString = "557028570.463272"
+            timestampString = "557115151.6791739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "initRatings(bar:)"
             landmarkType = "7">
          </BreakpointContent>

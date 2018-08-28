@@ -40,7 +40,7 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        if textView == self.comments {
+        if textView == self.comments {          //enables the submit btn if comment box has text, disables otherwise
             self.submitBtn.isEnabled = !comments.text.isEmpty
             self.submitBtn.isHidden = comments.text.isEmpty
         }
@@ -67,6 +67,8 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
             }
         }
     }
+    
+    func sendRatingToServer(theReview: reviewMessage, completion:((Error?) -> Void)?){ }
     
     func sendReviewToServer(theReview: reviewMessage, completion:((Error?) -> Void)?){
         
@@ -104,10 +106,7 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
                 completion?(responseError!)
                 return
             }
-            
-           
         }
-        
         task.resume()
     }
     
