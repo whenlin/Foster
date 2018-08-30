@@ -17,16 +17,22 @@ struct Ratings: Encodable {
 }
 
 struct RatingsReceived: Decodable {
-    var barName: String!
+    var overallAvg: String!
     var waitTime: String!
     var drinks: String!
     var washrooms: String!
     var music: String!
+    
+    enum CodingKeys: String, CodingKey {
+        case overallAvg
+        case waitTime = "waitAvg"
+        case drinks = "drinkAvg"
+        case washrooms = "washroomsAvg"
+        case music = "musicAvg"
+    }
 }
 
 struct RatingsFromServer: Decodable {
     var ratings: [RatingsReceived]
 }
-//struct Review : Decodable {
-//    var reviews: [BarReview]
-//}
+

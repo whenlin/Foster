@@ -138,7 +138,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Barking Frog" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-O7-9nb">
-                                        <rect key="frame" x="92" y="23.5" width="192.5" height="29.5"/>
+                                        <rect key="frame" x="102.5" y="19.5" width="170" height="36"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="25"/>
                                         <color key="textColor" red="0.84313725490196079" green="0.0" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -194,7 +194,7 @@
                                             <constraint firstAttribute="height" constant="70" id="bVt-7B-wCe"/>
                                             <constraint firstAttribute="width" constant="70" id="uyH-U5-Fee"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="29"/>
+                                        <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -218,13 +218,13 @@
                                 <rect key="frame" x="15" y="463" width="345" height="204"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbd-o2-qXI">
-                                        <rect key="frame" x="5" y="0.0" width="107.5" height="23.5"/>
+                                        <rect key="frame" x="5" y="0.0" width="107.5" height="29"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="70" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dKM-8A-HoG">
-                                        <rect key="frame" x="0.0" y="23.5" width="345" height="180.5"/>
+                                        <rect key="frame" x="0.0" y="29" width="345" height="175"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewsCell" rowHeight="500" id="o5R-Eu-HE7" customClass="ReviewsCell" customModule="BarRank" customModuleProvider="target">
@@ -255,7 +255,7 @@
                                         </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkj-QI-H67">
-                                        <rect key="frame" x="270" y="-4" width="67" height="32"/>
+                                        <rect key="frame" x="282" y="-3.5" width="55" height="37"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-LightItalic" family="Brandon Grotesque" pointSize="17"/>
                                         <state key="normal" title="Show All">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -288,25 +288,25 @@
                                 <rect key="frame" x="15" y="338" width="345" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drinks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F2-Fc-C59">
-                                        <rect key="frame" x="10" y="5" width="51.5" height="21"/>
+                                        <rect key="frame" x="10" y="5" width="48.5" height="26"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZz-A9-0W7">
-                                        <rect key="frame" x="10" y="31" width="43" height="21"/>
+                                        <rect key="frame" x="10" y="36" width="37.5" height="26"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Washrooms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQi-oM-WK6">
-                                        <rect key="frame" x="10" y="57" width="95.5" height="21"/>
+                                        <rect key="frame" x="10" y="67" width="82.5" height="26"/>
                                         <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPx-zp-o8I">
-                                        <rect key="frame" x="10" y="80" width="55" height="21"/>
+                                        <rect key="frame" x="10" y="95" width="55" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="55" id="s4R-DF-v9M"/>
                                         </constraints>
@@ -315,7 +315,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrk-xV-saZ" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="189" y="5.5" width="120" height="20"/>
+                                        <rect key="frame" x="189" y="8" width="120" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
@@ -323,7 +323,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDP-NX-Z6B" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="189" y="57.5" width="120" height="20"/>
+                                        <rect key="frame" x="189" y="70" width="120" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
@@ -331,7 +331,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcO-no-MKg" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="189" y="80.5" width="120" height="20"/>
+                                        <rect key="frame" x="189" y="98" width="120" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>
@@ -339,7 +339,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62J-sL-Jfh" customClass="CosmosView" customModule="Cosmos">
-                                        <rect key="frame" x="189" y="31.5" width="120" height="20"/>
+                                        <rect key="frame" x="189" y="39" width="120" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="filledImage" value="GoldStar"/>

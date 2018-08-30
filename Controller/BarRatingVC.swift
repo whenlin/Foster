@@ -42,11 +42,9 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     @IBAction func unwindToBarRatingVC(segue:UIStoryboardSegue) {
         self.listOfReviews.reloadData()
     }
-
     
     let locationManager = CLLocationManager()
-    
-    
+
     // Print out the location to the console
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        if let location = locations.first {
@@ -89,16 +87,13 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         listOfReviews.rowHeight = UITableViewAutomaticDimension
         listOfReviews.estimatedRowHeight = 70
         
-//        reviews = self.getInitialReviews(){
-//            (success) in
-//            if success {
-//                print("Worked!")
-//            } else {
-//                print("Failed!")
-//            }
-//        }
+        //setting up star ratings below
+        drinksRating.settings.fillMode = .precise
+        washroomsRating.settings.fillMode = .precise
+        musicRating.settings.fillMode = .precise
+        linesRating.settings.fillMode = .precise
         
-           self.fetchInitialReviews() {
+        self.fetchInitialReviews() {
             (error) in
             if let error = error {
                 fatalError(error.localizedDescription)
@@ -106,6 +101,18 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 print("Success!!!")
             }
         }
+        
+        self.fetchBarRatings(){
+            (error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            } else {
+                print("Ratings worked!!!")
+            }
+        }
+        
+        
+        
      //   setupUberBtnConstraints()
         
         //  UNCOMMENT THE BLOCK BELOW WHEN YOU ARE READYYY - WILLIAM!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -183,7 +190,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         urlComponents.path = "/ratings/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
-        // Specify this request as being a POST method
+        // Specify this request as being a GET method
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         // Make sure that we include headers specifying that our request's HTTP body
@@ -208,26 +215,45 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 print("no readable data received in response")
             }
             
-            guard let barRating = try? JSONDecoder().decode(RatingsFromServer.self, from: responseData!) else {
-                print("Error: Couldn't decode data into Reviews")
+            guard let barRatings = try? JSONDecoder().decode(RatingsFromServer.self, from: responseData!) else {
+                print("Error: Couldn't decode data into Ratings array")
                 return
             }
-            
-            let rating_json_array = barRating.ratings
+        
+            let rating_json_array = barRatings.ratings
+
+        //    print("ARRAY PRINTED BELOW!!!!!!")
+        //    print(rating_json_array)
             
             if rating_json_array.count > 0 {
-                
-                print(rating_json_array[0])
-                
+
+          //      print("1st element!! - ")
+          //      print(rating_json_array[0])
+
                 for eachRating in rating_json_array {
                     var rating: RatingsReceived! = RatingsReceived()
+                    rating.overallAvg = eachRating.overallAvg
                     rating.waitTime = eachRating.waitTime
-                    rating.barName = eachRating.barName
                     rating.drinks = eachRating.drinks
                     rating.washrooms = eachRating.washrooms
                     rating.music = eachRating.music
                     self.ratings.append(rating)
                 }
+                // print("FIRST INDEX IN RATINGS ARRAY ",self.ratings[0])
+            }
+            
+            DispatchQueue.main.async {
+                let drinks = Double(self.ratings[0].drinks)
+                let washrooms = Double(self.ratings[0].washrooms)
+                let music = Double(self.ratings[0].music)
+                let lines = Double(self.ratings[0].waitTime)
+                
+                self.drinksRating.rating =  drinks!
+                self.washroomsRating.rating = washrooms!
+                self.musicRating.rating = music!
+                self.linesRating.rating = lines!
+                
+                self.overallBarRating.text = self.ratings[0].overallAvg
             }
         }
         task.resume()
@@ -261,7 +287,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 return
             }
             
-            // APIs usually respond with the data you just sent in your POST request
+            // APIs usually respond with the data you just sent in your GET request
             if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
                 print("response: ", utf8Representation)
             } else {
@@ -277,7 +303,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             
             if review_json_array.count > 0 {
                 
-                print(review_json_array[0])
+           //     print(review_json_array[0])
                 
                 for eachReview in review_json_array {
                     var review: BarReview! = BarReview()
@@ -299,7 +325,6 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         
     }
 
-    
     func getAllReviews(completion:((Error?) -> Void)?) -> [BarReview] { //MODIFY THIS FUNCTION LIKE THE ONE ABOVE
         
         var urlComponents = URLComponents()
@@ -343,7 +368,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             
             if review_json_array.count > 0 {
                 
-                print(review_json_array[0])
+          //      print(review_json_array[0])
                 
                 for eachReview in review_json_array {
                     var review: BarReview! = BarReview()
