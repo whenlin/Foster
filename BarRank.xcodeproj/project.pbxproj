@@ -11,6 +11,7 @@
 		8305259B20EA7D3D009AC597 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259A20EA7D3D009AC597 /* RoundedImageView.swift */; };
 		8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8305259C20EA81F3009AC597 /* RoundedButton.swift */; };
 		83397C8721345F82002EEDD3 /* RatingsToSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83397C8621345F82002EEDD3 /* RatingsToSend.swift */; };
+		83397C8921387A80002EEDD3 /* DailyEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83397C8821387A80002EEDD3 /* DailyEvent.swift */; };
 		8342067620EC5DB300D8072C /* BarRatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067520EC5DB300D8072C /* BarRatingVC.swift */; };
 		8342067820EC674F00D8072C /* BarReviewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342067720EC674F00D8072C /* BarReviewsService.swift */; };
 		8350CE7D212DB39100700049 /* initReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8350CE7C212DB39100700049 /* initReviewsVC.swift */; };
@@ -56,6 +57,7 @@
 		8305259A20EA7D3D009AC597 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		8305259C20EA81F3009AC597 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		83397C8621345F82002EEDD3 /* RatingsToSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsToSend.swift; sourceTree = "<group>"; };
+		83397C8821387A80002EEDD3 /* DailyEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEvent.swift; sourceTree = "<group>"; };
 		8342067520EC5DB300D8072C /* BarRatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarRatingVC.swift; sourceTree = "<group>"; };
 		8342067720EC674F00D8072C /* BarReviewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarReviewsService.swift; sourceTree = "<group>"; };
 		8350CE7C212DB39100700049 /* initReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initReviewsVC.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				835DB8F02123D2980082731A /* ReviewsFromApi.swift */,
 				83A544B32131E35E006768D4 /* reviewToSend.swift */,
 				83397C8621345F82002EEDD3 /* RatingsToSend.swift */,
+				83397C8821387A80002EEDD3 /* DailyEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			files = (
 				835A9B5C20CDFC4700FE5B69 /* BarMenuVC.swift in Sources */,
 				8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */,
+				83397C8921387A80002EEDD3 /* DailyEvent.swift in Sources */,
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A544B42131E35E006768D4 /* reviewToSend.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,

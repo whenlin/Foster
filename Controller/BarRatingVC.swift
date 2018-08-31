@@ -132,20 +132,14 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func initRatings(bar: Bar){
-        
         nameOfBar = bar.title
         imageURL = bar.imageName
-      //  self.barRating.text =
-        //gonna have to call the api to get the respective bar's ratings
-        //probs should implement a function that gets the ratings then place that function in viewDidLoad()
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {  //navigates users back to the list of bars
@@ -221,15 +215,8 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             }
         
             let rating_json_array = barRatings.ratings
-
-        //    print("ARRAY PRINTED BELOW!!!!!!")
-        //    print(rating_json_array)
             
             if rating_json_array.count > 0 {
-
-          //      print("1st element!! - ")
-          //      print(rating_json_array[0])
-
                 for eachRating in rating_json_array {
                     var rating: RatingsReceived! = RatingsReceived()
                     rating.overallAvg = eachRating.overallAvg
@@ -239,7 +226,6 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                     rating.music = eachRating.music
                     self.ratings.append(rating)
                 }
-                // print("FIRST INDEX IN RATINGS ARRAY ",self.ratings[0])
             }
             
             DispatchQueue.main.async {
@@ -248,11 +234,11 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 let music = Double(self.ratings[0].music)
                 let lines = Double(self.ratings[0].waitTime)
                 
+                //updating UI
                 self.drinksRating.rating =  drinks!
                 self.washroomsRating.rating = washrooms!
                 self.musicRating.rating = music!
                 self.linesRating.rating = lines!
-                
                 self.overallBarRating.text = self.ratings[0].overallAvg
             }
         }
