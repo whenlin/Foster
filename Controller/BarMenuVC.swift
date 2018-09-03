@@ -10,9 +10,7 @@ import UIKit
 
 class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
 
-    
     //Outlets
-    
     @IBOutlet weak var listOfBars: UITableView!
     
     //properties
@@ -22,15 +20,12 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var barNames: [String] = [String]()
     let searchController = UISearchController(searchResultsController: nil)
     
-    
     //functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         listOfBars.dataSource = self
         listOfBars.delegate = self
-        
-      //  filteredBars = bars
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -62,20 +57,14 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bar = self.getBars()[indexPath.row]
-     //   performSegue(withIdentifier: "ReviewsVC", sender: bar)
         performSegue(withIdentifier: "BarRatingVC", sender: bar)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let reviewsVC = segue.destination as? ReviewsVC{
-//              assert(sender as? Bar != nil)
-//              reviewsVC.initBars(bar: sender as! Bar)
-//        }
 
         if let barRatingVC = segue.destination as? BarRatingVC{
             assert(sender as? Bar != nil)
             barRatingVC.initRatings(bar: sender as! Bar)
-          //  barRatingVC.initRatings_(barName: sender)
         }
         
           let barBtn = UIBarButtonItem()
@@ -160,8 +149,6 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 let imageName = index + ".jpg"
                 self.tableData.append(Bar(title: index, imageName: imageName))
             }
-            
-            print(self.barNames)
             
             DispatchQueue.main.async {
                 self.listOfBars.reloadData()

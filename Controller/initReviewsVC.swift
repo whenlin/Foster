@@ -137,17 +137,13 @@ class initReviewsVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 if let createReviewsVC = segue.destination as? createReviewsVC{
                     review.personName = self.personName.text
-                    
                     createReviewsVC.passReviewInfo(review: review)
                 }
-        
     }
     
     @IBAction func nextBtnClicked(_ sender: Any) {
         if(self.personName.text!.count > 0 && self.uniProgram.text!.count > 0){
             performSegue(withIdentifier: "finishReview", sender: review)
-        } else {
-            
         }
     }
     
