@@ -567,11 +567,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7589SML3ZP;
 				INFOPLIST_FILE = "PoloGang(Bar)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "www.williamhenlin.com.PoloGang-Bar-";
+				PRODUCT_BUNDLE_IDENTIFIER = Foster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/PoloGang(Bar)-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -589,11 +590,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7589SML3ZP;
 				INFOPLIST_FILE = "PoloGang(Bar)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "www.williamhenlin.com.PoloGang-Bar-";
+				PRODUCT_BUNDLE_IDENTIFIER = Foster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Supporting Files/PoloGang(Bar)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

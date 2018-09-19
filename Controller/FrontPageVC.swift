@@ -15,8 +15,7 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBOutlet weak var todaysDate: UILabel!
     @IBOutlet weak var currentDayOfWeek: UILabel!
     @IBOutlet weak var dailyEventTable: UITableView!
-    
-    
+    @IBOutlet weak var location: UILabel!
     
     var dailyEvents = [DailyEvent]()
     // var mondayEvents = 
@@ -32,14 +31,78 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         dailyEventTable.rowHeight = UITableViewAutomaticDimension
         dailyEventTable.estimatedRowHeight = 280
         
+        location.text = "London,\nOntario"
         let currentday = Date()
         let formatter = DateFormatter()
         let myCalendar = Calendar(identifier: .gregorian)
         formatter.timeStyle = .none
         formatter.dateStyle = .long
-        todaysDate.text = formatter.string(from: currentday)
+        let today = formatter.string(from: currentday)
+        
+       // todaysDate.text = today
+        
         let weekDay = myCalendar.component(.weekday, from: currentday)
         currentDayOfWeek.text = getDayOfWeek(weekday: weekDay)
+        
+        todaysDate.text = adjustDateLength(Date: today) //currently being checked
+    }
+    
+    func adjustDateLength(Date: String) -> String{
+        
+        var array: [Substring]
+        array = Date.split(separator: " ")
+        var resultString: String
+        resultString = ""
+        
+        var month: String
+        
+        switch(array[0]){
+        case "February":
+            month = "Feb"
+            break;
+            
+        case "January":
+            month = "Jan"
+            break;
+            
+        case "August":
+            month = "Aug"
+            break;
+            
+        case "September":
+            month = "Sept"
+            break;
+            
+        case "October":
+            month = "Oct"
+            break;
+            
+        case "November":
+            month = "Nov"
+            break;
+            
+        case "December":
+            month = "Dec"
+            break;
+            
+        default:
+            month = "Jan"
+            break;
+            
+        }
+        
+        var i = 0
+        while(i < array.count){
+            if(i == 0){
+              resultString += month + " "
+            }
+            else{
+              resultString += array[i] + " "
+            }
+            i = i + 1
+        }
+        
+        return resultString
     }
     
     func fillEventArray(){

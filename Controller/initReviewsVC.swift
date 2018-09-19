@@ -23,8 +23,19 @@ class initReviewsVC: UIViewController {
     let femaleBtn = RadioButton(selectedColor: .blue)   // buttons on the gender view
     let otherGenderBtn = RadioButton(selectedColor: .blue)  // buttons on the gender view
     
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         schoolView.addSubview(westernBtn)
         schoolView.addSubview(fanshaweBtn)
         schoolView.addSubview(otherBtn)
@@ -44,7 +55,7 @@ class initReviewsVC: UIViewController {
         
         NSLayoutConstraint.activate([
             westernBtn.centerYAnchor.constraint(equalTo: schoolView.centerYAnchor),
-            westernBtn.leadingAnchor.constraint(equalTo: schoolView.leadingAnchor, constant: 16),
+            westernBtn.leadingAnchor.constraint(equalTo: schoolView.leadingAnchor, constant: 28),
             westernBtn.heightAnchor.constraint(equalToConstant: westernBtn.frame.height),
             westernBtn.widthAnchor.constraint(equalToConstant: westernBtn.frame.width)])
         
@@ -56,13 +67,13 @@ class initReviewsVC: UIViewController {
         
         NSLayoutConstraint.activate([
             otherBtn.centerYAnchor.constraint(equalTo: schoolView.centerYAnchor),
-            otherBtn.trailingAnchor.constraint(equalTo: schoolView.trailingAnchor, constant: -16),
+            otherBtn.trailingAnchor.constraint(equalTo: schoolView.trailingAnchor, constant: -28),
             otherBtn.heightAnchor.constraint(equalToConstant: otherBtn.frame.height),
             otherBtn.widthAnchor.constraint(equalToConstant: otherBtn.frame.width)])
         
         NSLayoutConstraint.activate([
             maleBtn.centerYAnchor.constraint(equalTo: genderView.centerYAnchor),
-            maleBtn.leadingAnchor.constraint(equalTo: genderView.leadingAnchor, constant: 16),
+            maleBtn.leadingAnchor.constraint(equalTo: genderView.leadingAnchor, constant: 28),
             maleBtn.heightAnchor.constraint(equalToConstant: westernBtn.frame.height),
             maleBtn.widthAnchor.constraint(equalToConstant: westernBtn.frame.width)])
         
@@ -74,11 +85,11 @@ class initReviewsVC: UIViewController {
         
         NSLayoutConstraint.activate([
             otherGenderBtn.centerYAnchor.constraint(equalTo: genderView.centerYAnchor),
-            otherGenderBtn.trailingAnchor.constraint(equalTo: genderView.trailingAnchor, constant: -16),
+            otherGenderBtn.trailingAnchor.constraint(equalTo: genderView.trailingAnchor, constant: -28),
             otherGenderBtn.heightAnchor.constraint(equalToConstant: otherBtn.frame.height),
             otherGenderBtn.widthAnchor.constraint(equalToConstant: otherBtn.frame.width)])
         
-        
+        self.hideKeyboardWhenTappedAround() //FUNCTION THAT HIDES KEYBOARD WHEN ANY OTHER VIEW IS TOUCHED
         
         westernBtn.onSelect {
             
@@ -119,6 +130,39 @@ class initReviewsVC: UIViewController {
             self.otherBtn.deselect()
         }
         
+        maleBtn.onSelect {
+            self.maleBtn.select()
+            self.femaleBtn.deselect()
+            self.otherGenderBtn.deselect()
+            //put smthn here abt gender
+        }
+        
+        maleBtn.onDeselect {
+            self.maleBtn.deselect()
+        }
+        
+        femaleBtn.onSelect {
+            self.maleBtn.deselect()
+            self.femaleBtn.select()
+            self.otherGenderBtn.deselect()
+            //put smthn here abt gender
+        }
+        
+        femaleBtn.onDeselect {
+            self.femaleBtn.deselect()
+        }
+        
+        otherGenderBtn.onSelect {
+            self.maleBtn.deselect()
+            self.femaleBtn.deselect()
+            self.otherGenderBtn.select()
+            //put smthn here abt gender
+        }
+        
+        otherGenderBtn.onDeselect {
+            self.otherGenderBtn.deselect()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -135,10 +179,10 @@ class initReviewsVC: UIViewController {
     }
       
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                if let createReviewsVC = segue.destination as? createReviewsVC{
-                    review.personName = self.personName.text
-                    createReviewsVC.passReviewInfo(review: review)
-                }
+        if let createReviewsVC = segue.destination as? createReviewsVC{
+            review.personName = self.personName.text
+            createReviewsVC.passReviewInfo(review: review)
+        }
     }
     
     @IBAction func nextBtnClicked(_ sender: Any) {
