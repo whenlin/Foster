@@ -31,6 +31,7 @@
 		8352292C210F71EA0097AFD4 /* DailyEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8352292B210F71EA0097AFD4 /* DailyEventCell.swift */; };
 		8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08320F96ADF009030AF /* CircularLabel.swift */; };
 		8354E08620FA8169009030AF /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8354E08520FA8169009030AF /* BorderButton.swift */; };
+		83575DD321559DB90063FC0D /* DateLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83575DD221559DB90063FC0D /* DateLocationCell.swift */; };
 		835A9B4020CC5C6400FE5B69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B3F20CC5C6400FE5B69 /* AppDelegate.swift */; };
 		835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B4120CC5C6400FE5B69 /* ViewController.swift */; };
 		835A9B4520CC5C6400FE5B69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 835A9B4320CC5C6400FE5B69 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		83A4CCDA20D7229D0005BC7B /* BarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD920D7229D0005BC7B /* BarModel.swift */; };
 		83A4CCDC20D726FC0005BC7B /* ReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */; };
 		83A544B42131E35E006768D4 /* reviewToSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A544B32131E35E006768D4 /* reviewToSend.swift */; };
+		83E644402158CB02002AE527 /* EventPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E6443F2158CB02002AE527 /* EventPageVC.swift */; };
 		ED93735C8D99ADE1D2545031 /* Pods_BarRank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,7 @@
 		8352292B210F71EA0097AFD4 /* DailyEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyEventCell.swift; sourceTree = "<group>"; };
 		8354E08320F96ADF009030AF /* CircularLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularLabel.swift; sourceTree = "<group>"; };
 		8354E08520FA8169009030AF /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
+		83575DD221559DB90063FC0D /* DateLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLocationCell.swift; sourceTree = "<group>"; };
 		835A9B3C20CC5C6300FE5B69 /* BarRank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarRank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		835A9B3F20CC5C6400FE5B69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		835A9B4120CC5C6400FE5B69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		83A4CCD920D7229D0005BC7B /* BarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarModel.swift; sourceTree = "<group>"; };
 		83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsVC.swift; sourceTree = "<group>"; };
 		83A544B32131E35E006768D4 /* reviewToSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewToSend.swift; sourceTree = "<group>"; };
+		83E6443F2158CB02002AE527 /* EventPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPageVC.swift; sourceTree = "<group>"; };
 		BB4C2652040C101BF7FDCAFA /* Pods_BarRank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BarRank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF15CBCCF427ACEB60E808E /* Pods_PoloGang_Bar_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoloGang_Bar_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7C11E2F532C57406DA0310B /* Pods-BarRank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BarRank.release.xcconfig"; path = "Pods/Target Support Files/Pods-BarRank/Pods-BarRank.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				835A9B5920CDFAE400FE5B69 /* FrontPageVC.swift */,
+				83E6443F2158CB02002AE527 /* EventPageVC.swift */,
 				835A9B5B20CDFC4700FE5B69 /* BarMenuVC.swift */,
 				83A4CCDB20D726FC0005BC7B /* ReviewsVC.swift */,
 				8342067520EC5DB300D8072C /* BarRatingVC.swift */,
@@ -209,6 +214,7 @@
 				8354E08520FA8169009030AF /* BorderButton.swift */,
 				8352292B210F71EA0097AFD4 /* DailyEventCell.swift */,
 				8350CE7E212DDC7700700049 /* RadioButton.swift */,
+				83575DD221559DB90063FC0D /* DateLocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -398,8 +404,10 @@
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A544B42131E35E006768D4 /* reviewToSend.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
+				83E644402158CB02002AE527 /* EventPageVC.swift in Sources */,
 				835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */,
 				8352292C210F71EA0097AFD4 /* DailyEventCell.swift in Sources */,
+				83575DD321559DB90063FC0D /* DateLocationCell.swift in Sources */,
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,
 				8354E08620FA8169009030AF /* BorderButton.swift in Sources */,

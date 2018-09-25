@@ -24,6 +24,7 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() //hides keyboard
         submitBtn.isEnabled = false
         submitBtn.isHidden = true
         // Do any additional setup after loading the view.
@@ -34,6 +35,16 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer =     UITapGestureRecognizer(target: self, action:    #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func passReviewInfo(review: BarReview){

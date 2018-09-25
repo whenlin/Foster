@@ -1,24 +1,24 @@
 //
-//  FrontPageVC.swift
-//  PoloGang(Bar)
+//  EventPageVC.swift
+//  BarRank
 //
-//  Created by WHenlin on 2018-06-10.
+//  Created by WHenlin on 2018-09-24.
 //  Copyright © 2018 WHenlin. All rights reserved.
 //
 
 import UIKit
 
-class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     //Outlets
     @IBOutlet weak var menuBtn: UIButton!
-    @IBOutlet weak var todaysDate: UILabel!
-    @IBOutlet weak var currentDayOfWeek: UILabel!
+ //   @IBOutlet weak var todaysDate: UILabel!
+ //   @IBOutlet weak var currentDayOfWeek: UILabel!
     @IBOutlet weak var dailyEventTable: UITableView!
-    @IBOutlet weak var location: UILabel!
+ //   @IBOutlet weak var location: UILabel!
     
     var dailyEvents = [DailyEvent]()
-    // var mondayEvents = 
+    // var mondayEvents =
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +31,20 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         dailyEventTable.rowHeight = UITableViewAutomaticDimension
         dailyEventTable.estimatedRowHeight = 280
         
-        location.text = "London,\nOntario"
-        let currentday = Date()
-        let formatter = DateFormatter()
-        let myCalendar = Calendar(identifier: .gregorian)
-        formatter.timeStyle = .none
-        formatter.dateStyle = .long
-        let today = formatter.string(from: currentday)
-        
-       // todaysDate.text = today
-        
-        let weekDay = myCalendar.component(.weekday, from: currentday)
-        currentDayOfWeek.text = getDayOfWeek(weekday: weekDay)
-        
-        todaysDate.text = adjustDateLength(Date: today) //currently being checked
+//        location.text = "London,\nOntario"
+//        let currentday = Date()
+//        let formatter = DateFormatter()
+//        let myCalendar = Calendar(identifier: .gregorian)
+//        formatter.timeStyle = .none
+//        formatter.dateStyle = .long
+//        let today = formatter.string(from: currentday)
+//
+//        // todaysDate.text = today
+//
+//        let weekDay = myCalendar.component(.weekday, from: currentday)
+//        currentDayOfWeek.text = getDayOfWeek(weekday: weekDay)
+//
+//        todaysDate.text = adjustDateLength(Date: today) //currently being checked
     }
     
     func adjustDateLength(Date: String) -> String{
@@ -94,10 +94,10 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         var i = 0
         while(i < array.count){
             if(i == 0){
-              resultString += month + " "
+                resultString += month + " "
             }
             else{
-              resultString += array[i] + " "
+                resultString += array[i] + " "
             }
             i = i + 1
         }
@@ -155,57 +155,57 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
         var result: String
         
         switch(weekday){
-            case 1:
-                result = "Sunday"
-                break;
-            case 2:
-                result = "Monday"
-                break;
-            case 3:
-                result = "Tuesday"
-                break;
-            case 4:
-                result = "Wednesday"
-                break;
-            case 5:
-                result = "Thursday"
-                break;
-            case 6:
-                result = "Friday"
-                break;
-            case 7:
-                result = "Saturday"
-                break;
+        case 1:
+            result = "Sunday"
+            break;
+        case 2:
+            result = "Monday"
+            break;
+        case 3:
+            result = "Tuesday"
+            break;
+        case 4:
+            result = "Wednesday"
+            break;
+        case 5:
+            result = "Thursday"
+            break;
+        case 6:
+            result = "Friday"
+            break;
+        case 7:
+            result = "Saturday"
+            break;
             
-            default:
-                result = "Sunday"
-                break;
+        default:
+            result = "Sunday"
+            break;
         }
         return result
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return self.getDailyEvents().count
+        return self.getDailyEvents().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.row > 0){
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "DailyEventCell") as? DailyEventCell{
-            let dailyEvent = self.getDailyEvents()[indexPath.row]
-            cell.updateView(event: dailyEvent)
-            return cell
-        } else {
-            return DailyEventCell()
-        }
-    
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "DailyEventCell") as? DailyEventCell{
+                let dailyEvent = self.getDailyEvents()[indexPath.row]
+                cell.updateView(event: dailyEvent)
+                return cell
+            } else {
+                return DailyEventCell()
+            }
+            
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell") as? DateLocationCell{
-               // let dailyEvent = self.getDailyEvents()[indexPath.row]
+                // let dailyEvent = self.getDailyEvents()[indexPath.row]
                 cell.setUpView()
                 return cell
             } else {
@@ -220,5 +220,5 @@ class FrontPageVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     
     
-   
+
 }
