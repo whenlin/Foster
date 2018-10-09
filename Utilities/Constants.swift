@@ -11,7 +11,7 @@ import Foundation
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 //URL Constants
-let BASE_URL = "https://bar-app-whenlin.c9users.io/"
+let BASE_URL = "http://54.190.19.155:3000/"
 let URL_GETBARS = "\(BASE_URL)bars/"
 let URL_GETREVIEWS = "\(BASE_URL)reviews/"
 let URL_GETALLREVIEWS = "\(BASE_URL)allReviews/"

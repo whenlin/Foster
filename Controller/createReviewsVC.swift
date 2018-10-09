@@ -97,8 +97,9 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
     
     func sendRatingToServer(theRatings: Ratings, completion:((Error?) -> Void)?){
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.scheme = "http"
+        urlComponents.host = "54.190.19.155"
+        urlComponents.port = 3000
         urlComponents.path = "/ratings"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
     
@@ -137,8 +138,9 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
     func sendReviewToServer(theReview: reviewMessage, completion:((Error?) -> Void)?){
         
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.scheme = "http"
+        urlComponents.host = "54.190.19.155"
+        urlComponents.port = 3000
         urlComponents.path = "/addReview"
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         

@@ -179,8 +179,9 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     
     func fetchBarRatings(completion:((Error?) -> Void)?) {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.scheme = "http"
+        urlComponents.host = "54.190.19.155"
+        urlComponents.port = 3000
         urlComponents.path = "/ratings/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
@@ -249,8 +250,9 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     func fetchInitialReviews(completion:((Error?) -> Void)?) {
         
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.scheme = "http"
+        urlComponents.host = "54.190.19.155"
+        urlComponents.port = 3000
         urlComponents.path = "/reviews/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
@@ -314,8 +316,11 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     func getAllReviews(completion:((Error?) -> Void)?) -> [BarReview] { //MODIFY THIS FUNCTION LIKE THE ONE ABOVE
         
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "bar-app-whenlin.c9users.io"
+       // urlComponents.scheme = "https"
+        urlComponents.scheme = "http"
+       // urlComponents.host = "bar-app-whenlin.c9users.io"
+        urlComponents.host = "54.190.19.155"
+        urlComponents.port = 3000
         urlComponents.path = "/allReviews/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
@@ -373,11 +378,11 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             
         }
         task.resume()
-        
         return reviews
     }
     
     @IBAction func getAllReviews(_ sender: Any) {
+        loadingCommentsIndicator.startAnimating()
         reviews.removeAll()
         reviews = self.getAllReviews(){
             (error) in
@@ -387,6 +392,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 print("Success!!!!!")
             }
         }
+        loadingCommentsIndicator.stopAnimating()
     }
     
     
