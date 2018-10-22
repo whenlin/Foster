@@ -16,7 +16,7 @@ class BarsCell: UITableViewCell {
     
     
     func updateViews(bar: Bar){
-        barImage.image =  UIImage(named: bar.imageName)
+       // barImage.image =  UIImage(named: bar.imageName) commented out to accomodate the new cell (which has no pic)
         barName.text =  bar.title
     }
 }

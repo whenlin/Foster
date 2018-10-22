@@ -48,12 +48,12 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BarsCell") as? BarsCell{
             let bar = self.getBars()[indexPath.row]
-            cell.updateViews(bar: bar)
+            cell.updateViews(bar: bar)  //updates bar names only at the moment
             return cell
         } else {
             return BarsCell()
         }
-    }
+    }//function controls the cells
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bar = self.getBars()[indexPath.row]
@@ -106,7 +106,6 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 print("Failed!")
             }
         }
-        
         return tableData
     }
     
@@ -143,12 +142,17 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             
             if let array = json["bars"] as? [String] {
                 self.barNames = array
-            }
+            } //inserts bars received from server to local array
             
             for index in self.barNames {
                 let imageName = index + ".jpg"
-                self.tableData.append(Bar(title: index, imageName: imageName))
-            }
+                if index == "Molly Bloom's Irish Pub"{
+                    let str = "Molly Bloom's"
+                    self.tableData.append(Bar(title: str, imageName: imageName))
+                } else {
+                    self.tableData.append(Bar(title: index, imageName: imageName))
+                }
+            } //loads info received into table's array
             
             DispatchQueue.main.async {
                 self.listOfBars.reloadData()
@@ -157,7 +161,6 @@ class BarMenuVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
         
         task.resume()
-        
         
         return tableData
     }
