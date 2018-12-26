@@ -30,6 +30,27 @@ class createReviewsVC: UIViewController,UITextViewDelegate {
         // Do any additional setup after loading the view.
         //print(review)
         self.barName.text = self.review.barName
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification){
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize =  userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardFrame.height
+            }
+        
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification){
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 
     override func didReceiveMemoryWarning() {
