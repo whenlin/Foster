@@ -16,9 +16,6 @@ struct BarReview : Decodable {
     var _id: String!
     var message: String!
     
-    //var overallBarRating: String!
-    //should add more variables for the other ratings
-    
     enum CodingKeys: String, CodingKey {
         case _id
         case barName
@@ -26,5 +23,4 @@ struct BarReview : Decodable {
         case message
         case institution = "school"
     }
-    
 }

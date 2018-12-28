@@ -78,6 +78,15 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             }
         }
         
+        self.fetchBarAddress(){
+            (error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            } else {
+                print("Bar Address Info received!!!")
+            }
+        }
+        
         let uberBtn = RideRequestButton()
         uberView.translatesAutoresizingMaskIntoConstraints = false
         uberBtn.center = CGPoint(x: overallBarRating.center.x , y: overallBarRating.center.y + 60)
@@ -215,6 +224,60 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         }
         task.resume()
     }
+    
+    func fetchBarAddress(completion:((Error?) -> Void)?) {
+        //THE COMPONENTS BELOW ARE FOR TESTING SO CHANGE AFTER TESTING SUCCEEDS
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"                      //change this when ready
+        urlComponents.host = "bar-app-whenlin.c9users.io"   //change this when ready
+        urlComponents.port = 8080                           //change this to 3000 when testing succeeds
+        urlComponents.path = "/bars/" + nameOfBar
+        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+        
+        // Specify this request as being a GET method
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        // Make sure that we include headers specifying that our request's HTTP body
+        // will be JSON encoded
+        var headers = request.allHTTPHeaderFields ?? [:]
+        headers["Content-Type"] = "application/json"
+        request.allHTTPHeaderFields = headers
+        
+        // Create and run a URLSession data task with our JSON encoded POST request
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else {
+                completion?(responseError!)
+                return
+            }
+           
+            // APIs usually respond with the data you just sent in your GET request
+            if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+                print("response: ", utf8Representation)
+            } else {
+                print("no readable data received in response")
+            }
+            
+            guard let barInfo_decoded = try? JSONDecoder().decode(BarInfoArray.self, from: responseData!) else {
+                print("Error: Couldn't decode data into the respective Bar's Address")
+                return
+            }
+            
+            let barInfo_array = barInfo_decoded.bar
+            
+            if barInfo_array.count > 0 {
+            
+                let barInfo = barInfo_array[0]
+            
+              self.barAddress = barInfo.address + ", " + barInfo.city + ", " + barInfo.province + ", Canada"
+                print(self.barAddress)
+            }
+            
+        }
+        
+        task.resume()
+    }
 
     
     func fetchInitialReviews(completion:((Error?) -> Void)?) {
@@ -226,7 +289,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         urlComponents.path = "/reviews/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
-        // Specify this request as being a POST method
+        // Specify this request as being a GET method
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         // Make sure that we include headers specifying that our request's HTTP body
@@ -294,7 +357,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
         urlComponents.path = "/allReviews/" + nameOfBar
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         
-        // Specify this request as being a POST method
+        // Specify this request as being a GET method
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         // Make sure that we include headers specifying that our request's HTTP body
@@ -313,7 +376,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
                 return
             }
             
-            // APIs usually respond with the data you just sent in your POST request
+            // APIs usually respond with the data you just sent in your GET request
             if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
                 print("response: ", utf8Representation)
             } else {

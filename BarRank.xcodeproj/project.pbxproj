@@ -43,6 +43,8 @@
 		835A9B6220D0B59500FE5B69 /* BarReview_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */; };
 		835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835DB8F02123D2980082731A /* ReviewsFromApi.swift */; };
 		8369B815210A7F9500D54334 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369B814210A7F9500D54334 /* SWRevealViewController.m */; };
+		836DEA7F21D60D79007DFD44 /* BarInfo_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DEA7E21D60D79007DFD44 /* BarInfo_Model.swift */; };
+		836DEA8121D6193C007DFD44 /* BarInfoArray_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DEA8021D6193C007DFD44 /* BarInfoArray_Model.swift */; };
 		838B6245212A442E00CF29F9 /* createReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838B6244212A442E00CF29F9 /* createReviewsVC.swift */; };
 		83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */; };
 		83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4CCD420D7191B0005BC7B /* BarListService.swift */; };
@@ -95,6 +97,8 @@
 		835DB8F02123D2980082731A /* ReviewsFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFromApi.swift; sourceTree = "<group>"; };
 		8369B813210A7F9500D54334 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8369B814210A7F9500D54334 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		836DEA7E21D60D79007DFD44 /* BarInfo_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarInfo_Model.swift; sourceTree = "<group>"; };
+		836DEA8021D6193C007DFD44 /* BarInfoArray_Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarInfoArray_Model.swift; sourceTree = "<group>"; };
 		838B6244212A442E00CF29F9 /* createReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createReviewsVC.swift; sourceTree = "<group>"; };
 		83A4CCD120D0CA4E0005BC7B /* BarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsCell.swift; sourceTree = "<group>"; };
 		83A4CCD420D7191B0005BC7B /* BarListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarListService.swift; sourceTree = "<group>"; };
@@ -223,7 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				835A9B6120D0B59500FE5B69 /* BarReview_Model.swift */,
+				836DEA7E21D60D79007DFD44 /* BarInfo_Model.swift */,
 				83A4CCD920D7229D0005BC7B /* BarModel.swift */,
+				836DEA8021D6193C007DFD44 /* BarInfoArray_Model.swift */,
 				835DB8F02123D2980082731A /* ReviewsFromApi.swift */,
 				83A544B32131E35E006768D4 /* reviewToSend.swift */,
 				83397C8621345F82002EEDD3 /* RatingsToSend.swift */,
@@ -403,6 +409,7 @@
 				83397C8921387A80002EEDD3 /* DailyEvent.swift in Sources */,
 				8305259D20EA81F3009AC597 /* RoundedButton.swift in Sources */,
 				83A544B42131E35E006768D4 /* reviewToSend.swift in Sources */,
+				836DEA7F21D60D79007DFD44 /* BarInfo_Model.swift in Sources */,
 				83A4CCD220D0CA4E0005BC7B /* BarsCell.swift in Sources */,
 				83E644402158CB02002AE527 /* EventPageVC.swift in Sources */,
 				835DB8F12123D2980082731A /* ReviewsFromApi.swift in Sources */,
@@ -411,6 +418,7 @@
 				835A9B4220CC5C6400FE5B69 /* ViewController.swift in Sources */,
 				83A4CCD520D7191B0005BC7B /* BarListService.swift in Sources */,
 				8354E08620FA8169009030AF /* BorderButton.swift in Sources */,
+				836DEA8121D6193C007DFD44 /* BarInfoArray_Model.swift in Sources */,
 				838B6245212A442E00CF29F9 /* createReviewsVC.swift in Sources */,
 				8354E08420F96ADF009030AF /* CircularLabel.swift in Sources */,
 				8305259920E937E1009AC597 /* ReviewsCell.swift in Sources */,
