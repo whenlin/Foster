@@ -28,9 +28,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We may need to know your location always so that your Uber driver knows your location.</string>
+	<string>For the Uber functionality, will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to know your location if you are going to call Uber from this app</string>
+	<string>For the Uber functionality, do you allow this app to know your current location?</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Brandon_bld_it.otf</string>

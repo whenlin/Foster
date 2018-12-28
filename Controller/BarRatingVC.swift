@@ -9,13 +9,10 @@
 import UIKit
 import CoreLocation
 import Cosmos
-//import UberRides
-//CONFIGURE THIS PROJECT WITH UBER CREDENTIALS ETC FROM GITHUB SDK BEFORE YOU UNCOMMENT THIS!!!
+import UberRides
 
 class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate{
     
-    
-
     //Outlets
     @IBOutlet weak var barName: UILabel!
     @IBOutlet weak var barRating: UILabel!
@@ -28,8 +25,9 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     @IBOutlet weak var linesRating: CosmosView!
     @IBOutlet weak var washroomsRating: CosmosView!
     @IBOutlet weak var musicRating: CosmosView!
-    @IBOutlet weak var overallBarRating: CircularLabel!    //this is calculated by averaging the above ratings
+    @IBOutlet weak var overallBarRating: CircularLabel!    //this is the average of the above ratings
     
+    //Important variables for the VC
     var barAddress: String!
     var nameOfBar: String!
     var imageURL: String!
@@ -45,38 +43,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     
     let locationManager = CLLocationManager()
 
-    // Print out the location to the console
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.first {
-//            print(location.coordinate)
-//        }
-    }
     
-    // If we have been denied access give the user the option to change it
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if(status == CLAuthorizationStatus.denied) {
-            showLocationDisabledPopUp()
-        }
-    }
-    
-    // Show the popup to the user if we have been denied access
-    func showLocationDisabledPopUp() {
-//        let alertController = UIAlertController(title: "Background Location Access Disabled",
-//                                                message: "In order to deliver pizza we need your location",
-//                                                preferredStyle: .alert)
-//
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        alertController.addAction(cancelAction)
-//
-//        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
-//            if let url = URL(string: UIApplicationOpenSettingsURLString) {
-//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//            }
-//        }
-//        alertController.addAction(openAction)
-//
-//        self.present(alertController, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,11 +78,14 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             }
         }
         
-        
-        
-     //   setupUberBtnConstraints()
-        
-        //  UNCOMMENT THE BLOCK BELOW WHEN YOU ARE READYYY - WILLIAM!!!!!!!!!!!!!!!!!!!!!!!!!
+        let uberBtn = RideRequestButton()
+        uberView.translatesAutoresizingMaskIntoConstraints = false
+        uberBtn.center = CGPoint(x: overallBarRating.center.x , y: overallBarRating.center.y + 60)
+//        let leftEdge = NSLayoutConstraint(item: uberBtn, attribute: .left, relatedBy: .equal, toItem: uberView, attribute: .left, multiplier: 1.0, constant: 0.0)
+//        let rightEdge = NSLayoutConstraint(item: uberBtn, attribute: .right, relatedBy: .equal, toItem: uberView, attribute: .right, multiplier: 1.0, constant: 0.0)
+//        uberBtn.addConstraint(leftEdge)
+//        uberBtn.addConstraint(rightEdge)
+        uberView.addSubview(uberBtn)
         
 //        // For use when the app is open & in the background
 //        locationManager.requestAlwaysAuthorization()
@@ -358,9 +328,6 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             let review_json_array = barReview.reviews
             
             if review_json_array.count > 0 {
-                
-          //      print(review_json_array[0])
-                
                 for eachReview in review_json_array {
                     var review: BarReview! = BarReview()
                     review._id = eachReview._id
@@ -393,20 +360,6 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             }
         }
         loadingCommentsIndicator.stopAnimating()
-    }
-    
-    
-    func setupUberBtnConstraints(){         //function name is self-explanatory
-        uberView.translatesAutoresizingMaskIntoConstraints = false
-        
-      //  let blah - NSLayoutConstraint(item: <#T##Any#>, attribute: <#T##NSLayoutAttribute#>, relatedBy: <#T##NSLayoutRelation#>, toItem: <#T##Any?#>, attribute: <#T##NSLayoutAttribute#>, multiplier: <#T##CGFloat#>, constant: <#T##CGFloat#>)
-        
-        let topConstraint = NSLayoutConstraint(item: uberView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: uberView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
-        let leftConstraint = NSLayoutConstraint(item: uberView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: uberView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0)
-        
-        view.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
     }
     
 }
