@@ -33,6 +33,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     var imageURL: String!
     var reviews: [BarReview] = [BarReview]()
     var ratings: [RatingsReceived] = [RatingsReceived]()
+    var geoCoder = CLGeocoder()
     
   //  let uberBtn = RideRequestButton()
 //UNCOMMENT THIS WHEN YOU CONFIGURED THIS PROJECT WITH NECESSARY UBER DETAILS
@@ -87,27 +88,24 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
             }
         }
         
-        let uberBtn = RideRequestButton()
-        uberView.translatesAutoresizingMaskIntoConstraints = false
-        uberBtn.center = CGPoint(x: overallBarRating.center.x , y: overallBarRating.center.y + 60)
-//        let leftEdge = NSLayoutConstraint(item: uberBtn, attribute: .left, relatedBy: .equal, toItem: uberView, attribute: .left, multiplier: 1.0, constant: 0.0)
-//        let rightEdge = NSLayoutConstraint(item: uberBtn, attribute: .right, relatedBy: .equal, toItem: uberView, attribute: .right, multiplier: 1.0, constant: 0.0)
-//        uberBtn.addConstraint(leftEdge)
-//        uberBtn.addConstraint(rightEdge)
-        uberView.addSubview(uberBtn)
+//        let uberBtn = RideRequestButton()
+//        uberView.translatesAutoresizingMaskIntoConstraints = false
+//        uberBtn.center = CGPoint(x: overallBarRating.center.x , y: overallBarRating.center.y + 60)
+//
+//        uberView.addSubview(uberBtn)
         
-//        // For use when the app is open & in the background
-//        locationManager.requestAlwaysAuthorization()
-//
-//        // For use when the app is open
-//        //locationManager.requestWhenInUseAuthorization()
-//
-//        // If location services is enabled get the users location
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
-//            locationManager.startUpdatingLocation()
-//        }
+        // For use when the app is open & in the background
+        //locationManager.requestAlwaysAuthorization()
+
+        // For use when the app is open
+        locationManager.requestWhenInUseAuthorization()
+
+        // If location services is enabled get the users location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
+            locationManager.startUpdatingLocation()
+        }
         
     }
     
@@ -119,6 +117,56 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
     func initRatings(bar: Bar){
         nameOfBar = bar.title
         imageURL = bar.imageName
+    }
+    
+    private func locationManagerFunc(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> CLLocationCoordinate2D {
+        let userLocation:CLLocation = locations[0] as CLLocation
+       // let locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
+        
+        return userLocation.coordinate
+    }
+    
+    @IBAction func uberBtnClicked(_ sender: Any) {
+        
+        let address = self.barAddress
+        
+        geoCoder.geocodeAddressString(address ?? "209 John Street, London, Ontario, Canada") { (placemarks, error) in
+            guard
+                let placemark = placemarks,
+                let location = placemark.first?.location
+                else {
+                    // handle no location found
+                    print("No location found!!!")
+                    return
+            }
+            
+            //using the location of the bar
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            let currentLoc = self.locationManagerFunc(self.locationManager, didUpdateLocations: [self.locationManager.location!]) //obtaining user's current location coordinates
+            
+            let builder = RideParametersBuilder()
+            let pickupLocation = CLLocation(latitude: currentLoc.latitude, longitude: currentLoc.longitude)
+            let dropoffLocation = CLLocation(latitude: lat, longitude: lon)
+            builder.pickupLocation = pickupLocation
+            builder.dropoffLocation = dropoffLocation
+            builder.dropoffAddress = self.barAddress
+            let rideParameters = builder.build()
+            
+            let deeplink = RequestDeeplink(rideParameters: rideParameters, fallbackType: .appStore)
+            deeplink.execute()
+            //takes user to uber app
+        }
+        
+//        geocoder.geocodeAddressString(self.barAddress){
+//            (error) in
+//            if let error = error {
+//                fatalError(error.localizedDescription)
+//            } else {
+//                print("Bar Address geocode successfully obtained!")
+//            }
+//        }
     }
     
     @IBAction func backBtnClicked(_ sender: Any) {  //navigates users back to the list of bars
@@ -273,7 +321,7 @@ class BarRatingVC: UIViewController, CLLocationManagerDelegate, UITableViewDataS
               self.barAddress = barInfo.address + ", " + barInfo.city + ", " + barInfo.province + ", Canada"
                 print(self.barAddress)
             }
-            
+            //still needs to be completed, geocoding this address for the uber deeplink
         }
         
         task.resume()
